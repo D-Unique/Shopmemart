@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 export default function Nav() {
     const pMenus: string[] = ['Explore', 'SignUp', 'Login'];
@@ -9,7 +10,8 @@ export default function Nav() {
                 return <NavLink key={index} to={menu}>{menu}</NavLink>
 
             })
-};
+            };
+            <Button> My button</Button>
         </div>
     );
 }
