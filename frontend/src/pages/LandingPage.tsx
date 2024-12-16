@@ -1,11 +1,11 @@
 import React from 'react';
-import Nav from '../components/Nav';
+import Header from '../components/Header';
 
 export default function LandPage() {
     return (
         <div >
-            <Nav />
-            <h1>Landing Page</h1>
+            <Header />
+
         </div>
     );
      
