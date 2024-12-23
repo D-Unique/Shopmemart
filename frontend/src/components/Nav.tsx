@@ -1,18 +1,22 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
+import Col from 'react-bootstrap/esm/Col';
+import Row from 'react-bootstrap/esm/Row';
+import '../styles/components/Nav.css';
 
 export default function Nav() {
-    const pMenus: string[] = ['Explore', 'SignUp', 'Login'];
+    const pMenus: string[] = ['Categories', 'Deals', 'What\'s New', 'Delivery'];
     return (
-        <div>
-            <Navbar>
+       <>
+            <Row>
+            <Col xs='4'><h1 id="logo">Shopmemart</h1></Col>
+            <Col xs='7'>
             {pMenus.map((menu, index) => {
-                return <NavLink key={index} to={menu}>{menu}</NavLink>
+                return <NavLink id="pmenus" className="text-dark m-1" key={index} to={menu}>{menu}</NavLink>
 
             })
-            };
-           </Navbar>
-        </div>
+            }
+                </Col>
+            </Row>
+        </>
     );
 }

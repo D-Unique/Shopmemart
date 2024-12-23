@@ -1,12 +1,16 @@
-import React from 'react';
 import Header from '../components/Header';
+import Banner from '../components/Banner';
+import Container from 'react-bootstrap/Container';
 
-export default function LandPage() {
-    return (
-        <div >
-            <Header />
-
-        </div>
-    );
-     
- }
+function LandPage() {
+  return (
+    <>
+      <Header />
+      <Banner />
+    <Container id="body" className='my-5'>
+        Shopmemart
+    </Container>
+      </>
+  );
+}
+export default LandPage;

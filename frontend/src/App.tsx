@@ -1,15 +1,18 @@
-import React from 'react';
-import LandPage from './pages/LandingPage';
-import './App.css';
-import './reset.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import LandPage from './pages/LandingPage'
+import './styles/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 function App() {
+  
+
   return (
-    <div>
+    <>
+     <div>
       <LandPage />
     </div>
-  );
+    </>
+  )
 }
 
-export default App;
+export default App

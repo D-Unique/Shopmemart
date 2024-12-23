@@ -1,20 +1,24 @@
-import React from 'react';
+//styles
+import '../styles/components/Header.css';
 //conponent
 import Nav from './Nav';
 //bootstrap
-import Container from 'react-bootstrap/Container';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Searchbar from './Searchbar';
+import Account from './Account';
+
 
 function Header() {
     return (
-        <Container fluid>
+        <div id='header' >
       <Row>
-        <Col>sm=true</Col>
-        <Col xs={6}>sm=8</Col>
-                <Col >{Nav()}</Col>
+          <Col xs={6} className='text-dark'><Nav/></Col>
+        <Col xs={4} className="px-5 text-dark"><Searchbar/></Col>
+        <Col xs={2} className='text-dark'><Account/></Col>
       </Row>
-    </Container>
+    </div>
     );
 }
 

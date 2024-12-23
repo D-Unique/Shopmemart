@@ -19,23 +19,25 @@
   }
     
 .slideinleft  {
-    animation:  slideinleft  2s  1;
+    animation:  slideinleft  2s  ;
 }
 .slideinright  {
-    animation:  slideinright  2s  1;
+    animation:  slideinright  2s  ;
 }
 div#banner {
 
     display: flex;
     flex-direction: row;
   
-    background-image: url(img/landpage.png);
+    background-image: linear-gradient(100deg,
+    rgba(245, 70, 66, 0.75),
+    rgba(8, 83, 156, 0.75)), url(img/landpage.png);
     background-size: cover;
     background-position: center;
     
-    height: 650px;
-    margin: 10px 0 10px 0;
-    padding: 10px 0 10px 0;
+    height: 600px;
+    margin: 0 0 10px 0;
+    padding: 5px 0 10px 0;
     width: 100%;
   }
   div#banner .text {
@@ -54,8 +56,8 @@ div#banner {
   
   .overlay {
           position: absolute;
-          top: 60px;
-          left: 100px; 
+          top: 140px;
+          left: 160px; 
           right: 1%; 
           bottom: 5%; 
           background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */ 
@@ -64,4 +66,12 @@ div#banner {
           align-items: center;
           z-index: -3;
         }
+div#banner .text button {
+    width: 140px;
+    height: 50px;
+    background: #003d29;
+    text-align: center;
+    padding: 16px, 36px;
+    
 
+}

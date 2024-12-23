@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Search } from 'react-bootstrap-icons';
+import '../styles/components/Searchbar.css';
 function Searchbar() {
     const [search, setSearch] = useState<string>('');
     function handleSearch(e: any) {
@@ -11,17 +13,18 @@ function Searchbar() {
     }
 
   return (
-    <div >
-       
+    <div id='header-search' >
+       <form>
           <input
               className='p-29'
-            type="text"
+            type="search"
             placeholder="Search catagories.."
               onChange={handleChange}
               
             name={search}
         />
-        <button type="submit" onClick={handleSearch}>Submit</button>
+        <button type="submit" onClick={handleSearch}><Search/></button>
+      </form>
         
     </div>
   )
