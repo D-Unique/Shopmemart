@@ -1,5 +1,5 @@
 import { Footer } from './components/Footer';
-import './components/Media.css';
+import './styles/Media.css';
 import LandPage from './pages/LandingPage'
 import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
@@ -13,7 +13,7 @@ function App() {
      <div>
       <LandPage />
       </div>
-      <Footer />
+  
     </>
   )
 }

@@ -1,42 +1,9 @@
-import './Footer.css';
-import RotatingCircles from './RotatingCircles';
-
+import { NavLink } from 'react-router-dom';
+import '../styles/components/footer.css'
 export function Footer() {
   return (
     <footer>
-      <div>
-        <div className='image-div'>
-          <img src="/footer-image.jpg" alt="Footer Image" />
-        </div>
-      <div className='inner-footer2'>
-        <div className='footer-grid'>
-          <div className='shopmemart-experience'>
-            <h1>Transform Your Shopping Experience!</h1>
-            <p>
-              At Shopmemart, we bring you the best in convenience, quality, and affordability. 
-              Discover a wide range of products that suit your lifestyle, and enjoy seamless shopping from the comfort of your home. 
-            </p>
-            <RotatingCircles />
-            <p>
-              Your satisfaction is our priority, and we're here to make your life simpler, smarter, and better.
-            </p>
-          </div>
-          <div className='form-div'>
-            <h1>Contact Us</h1>
-            <form action="">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" />
 
-              <label htmlFor="e-mail">Email</label>
-              <input type="email" id="e-mail" />
-
-              <label htmlFor="textarea">Message</label>
-              <textarea id="textarea" />
-
-              <button type="submit">Send</button>
-            </form>
-          </div>
-        </div>
         <div className='footer-row'>
           <div className='footer-grid1'>
             <div className='class-head-item-div'>
@@ -47,7 +14,7 @@ export function Footer() {
             </div>
             <div className='class-head-item-div'>
                 <div className='class-head'>Support</div>
-                <div>Contact</div>
+                <div><NavLink to='/contact'> Contact </NavLink></div>
                 <div>Refund Policy</div>
                 <div>FAQ's</div>
             </div>
@@ -71,8 +38,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+  
   </footer>
   );
 }
