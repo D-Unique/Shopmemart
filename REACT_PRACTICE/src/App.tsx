@@ -1,4 +1,3 @@
-import { Footer } from './components/Footer';
 import './styles/Media.css';
 import LandPage from './pages/LandingPage'
 import './styles/App.css'

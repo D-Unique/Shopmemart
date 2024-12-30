@@ -4,7 +4,7 @@ body {
   margin: 0;
   display: flex;
   align-items: center; /* Align content at the top of the screen */
-  justify-content: center; /* This will center the content horizontally */
+ justify-content: center; /* This will center the content horizontally */
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
   box-sizing: border-box;

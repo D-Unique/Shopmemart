@@ -8,9 +8,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Searchbar from './Searchbar';
 import Account from './Account';
+import { Navbar } from 'react-bootstrap';
 
 function Header() {
   return (
+    <Navbar sticky='top'>
     <div id="header">
       <Row>
         <Col xs={6} className="text-dark">
@@ -23,7 +25,8 @@ function Header() {
           <Account />
         </Col>
       </Row>
-    </div>
+      </div>
+      </Navbar>
   );
 }
 
