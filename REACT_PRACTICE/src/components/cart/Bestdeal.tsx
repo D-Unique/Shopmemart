@@ -73,7 +73,7 @@ function Bestdeal() {
             >
             <img src={cartgories.image} alt={cartgories.name} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <HeartFill - />
+                <HeartFill />
                 
             </div>
             </Col>
