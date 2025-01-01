@@ -1,15 +1,12 @@
 #logo {
     font-family: fantasy;
-    color: #003d29;
+    color: white;
 }
 #pmenus {
-    padding-top: 100px;
     text-decoration: none;
-}
-div.col-7 {
-    padding: 10px 10px 10px 50px;
-}
-div.px-5.text-dark.col-4 {
-    padding: 10px 10px 10px 50px;
+    margin-top: 10px;
 }
 
+div.col7 {
+    margin-top: 10px;
+}
