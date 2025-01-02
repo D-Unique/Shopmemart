@@ -7,7 +7,7 @@ function Account() {
       <a href="" className="p-2">Sign In</a>
       <a href="" className="p-2">Sign Up</a>
       <span className="cart ms-5 p-2">
-        <Cart /> Cart
+        <Cart className='cart-icon'/> Cart
       </span>
     </div>
   );

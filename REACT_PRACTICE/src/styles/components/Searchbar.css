@@ -9,6 +9,7 @@
 #header-search input[type="search"]:focus {
     border-color: #c7c8c9;
     outline: none;
+    color: rgb(104, 104, 104);
 }
 
 #header-search button {
