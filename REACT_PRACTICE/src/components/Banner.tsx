@@ -5,7 +5,7 @@ function Banner() {
   return (
     <div id="banner">
       <div className="text">
-        <h2 className="slideinleft">shopping and department store.</h2>
+        <h2 className="slideinleft">Shopping and Department Store.</h2>
 
         <p className="slideinleft">
           Shopping is a bit of a relaxing hobby for me, which is sometimes

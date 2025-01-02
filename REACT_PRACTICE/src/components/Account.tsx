@@ -1,19 +1,13 @@
-import { Cart, Person } from 'react-bootstrap-icons';
+import { Cart } from 'react-bootstrap-icons';
 import '../styles/components/Account.css';
+
 function Account() {
   return (
-    < div id='account'>
-      <span className='mx-2'>
-        <Person />
-        <select  className="register" value="select">
-          <option value="select">Account</option>
-          <option>login</option>
-          <option>Signup</option>
-        </select>
-      </span>
-
-      <span className='cart'>
-        <Cart /> cart
+    <div id="account" className='d-flex m-2 justify-content-between'>
+      <a href="" className="p-2">Sign In</a>
+      <a href="" className="p-2">Sign Up</a>
+      <span className="cart ms-5 p-2">
+        <Cart /> Cart
       </span>
     </div>
   );

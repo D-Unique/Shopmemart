@@ -2,6 +2,7 @@
 import '../styles/components/Header.css';
 //conponent
 import Nav from './Nav';
+import "../styles/components/Nav.css";
 //bootstrap
 
 import Row from 'react-bootstrap/Row';
@@ -19,10 +20,10 @@ function Header() {
           <Col className="text-dark" xs={6}>
             <Nav />
           </Col>
-          <Col className="px-5 text-dark">
+          <Col className="text-dark d-flex justify-content-center align-items-center no-padding">
             <Searchbar />
           </Col>
-          <Col className="text-dark">
+          <Col className="text-dark d-flex justify-content-center align-items-center">
             <Account />
           </Col>
         </Row>

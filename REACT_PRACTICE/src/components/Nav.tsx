@@ -8,10 +8,10 @@ export default function Nav() {
   return (
     <>
       <Row>
-        <Col>
+        <Col xs="5" className="d-flex justify-content-left align-items-center no-padding">
           <h1 id="logo">Shopmemart</h1>
         </Col>
-        <Col xs="7">
+        <Col xs="6" className="d-flex justify-content-center align-items-center no-padding">
           {pMenus.map((menu, index) => {
             return (
               <NavLink
