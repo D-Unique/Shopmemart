@@ -16,10 +16,12 @@
 .cart {
     font-weight: 500;
     font-size: 16px;
+    border: 1px solid transparent;
 }
 
 .cart:hover {
-    color: #2e0ace;
+    color: #534d6e;
+    border: 1px solid white;
 }
 
 .cart-icon {

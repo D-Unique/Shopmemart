@@ -6,6 +6,7 @@ export function Footer() {
     <footer>
       <div className="footer-div">
         <div className="footer-head"> 
+          Shopmemart: Your One-Stop Shopping Destination
         </div>
         <div>
           <div className="footer-grid">
@@ -62,7 +63,7 @@ export function Footer() {
             </div>
           </div>
           <div className="footer-grid2">
-            <div>copyright &copy; Shopmemart</div>
+            <div>copyright &copy; 2024, Shopmemart</div>
             <div>Terms of Service</div>
             <div className="back-to-top">
               <a
