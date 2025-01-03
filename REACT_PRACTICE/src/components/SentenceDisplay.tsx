@@ -28,11 +28,13 @@ const SentenceDisplay = () => {
 
 export default SentenceDisplay;
 
-/*Fashion & Apparel
-Home & Living
-Electronics & Gadgets
-Health & Beauty
-Sports & Outdoors
-Toys & Games
-Books & Stationery
-Tech*/
+/*
+Fashion
+Furniture
+Gadgets
+Beauty
+Medical Supplies
+Sports 
+Toys 
+Books
+*/
