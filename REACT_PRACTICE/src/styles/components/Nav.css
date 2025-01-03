@@ -1,15 +1,21 @@
 #logo {
     font-family: fantasy;
-    color: #003d29;
-}
-#pmenus {
-    padding-top: 100px;
-    text-decoration: none;
-}
-div.col-7 {
-    padding: 10px 10px 10px 50px;
-}
-div.px-5.text-dark.col-4 {
-    padding: 10px 10px 10px 50px;
+    color: white;
+    padding-left: 25px;
 }
 
+#pmenus {
+    text-decoration: none;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+#pmenus:hover {
+    text-decoration: underline;
+}
+
+div.col7 {
+    margin-top: 10px;
+}

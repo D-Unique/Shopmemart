@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import { Search } from 'react-bootstrap-icons';
-import '../styles/components/Searchbar.css';
-function Searchbar() {
-    const [search, setSearch] = useState<string>('');
-    function handleSearch(e: any) {
-        setSearch(e.target.value);
-        console.log(search);
-        e.target.value = '';
-    }
-    function handleChange(e: any) {
-        setSearch(e.target.value);
-    }
+import { useState } from "react";
+import { Search } from "react-bootstrap-icons";
+import "../styles/components/Searchbar.css";
+
+export default function Searchbar() {
+  const [searchString, setSearchString] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchString(e.target.value);
+  };
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(`Testing if: ${searchString} is working`); // Replace this with your search logic
+  };
 
   return (
-    <div id='header-search' >
-       <form>
-          <input
-              className='p-29'
-            type="search"
-            placeholder="Search catagories.."
-              onChange={handleChange}
-              
-            name={search}
-        />
-        <button type="submit" onClick={handleSearch}><Search/></button>
-      </form>
-        
-    </div>
-  )
+    <form id="header-search" className="d-flex justify-content-left align-items-center" onSubmit={handleSearch}>
+      <input
+        className="p-29"
+        type="search"
+        placeholder="Search Shopmemart..."
+        onChange={handleChange}
+        value={searchString}
+        name="search"
+      />
+      <button type="submit">
+        <Search />
+      </button>
+    </form>
+  );
 }
-
-export default Searchbar
-

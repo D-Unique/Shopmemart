@@ -1,4 +1,3 @@
-// src/Keyframes.js
 import { motion } from 'framer-motion';
 
 export default function RotatingCircles() {
@@ -23,7 +22,6 @@ export default function RotatingCircles() {
                     }}
                     style={{
                         ...boxStyle,
-                        // Offset each circle's position slightly for visual separation
                         marginLeft: 10,
                     }}
                 />
@@ -46,6 +44,6 @@ const containerStyle = {
 const boxStyle = {
     width: 60,
     height: 60,
-    backgroundColor: 'var(--CirclesColour)', // Ensure this variable is defined in your CSS
+    backgroundColor: 'var(--CirclesColour)',
     borderRadius: '5%',
 };
