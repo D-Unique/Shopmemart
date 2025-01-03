@@ -9,11 +9,13 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .carousel-images {
   display: flex;
-  transition: transform 1.2s ease;
+  transition: transform 1.7s ease;
 }
 
 .carousel-image {
