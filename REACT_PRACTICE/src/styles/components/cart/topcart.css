@@ -1,11 +1,28 @@
-.topcart:hover {
-    transform: scale(1.1);
-    transition: 0.4s;
-
-} 
-
-.bestdeal img:hover {
-    transform: scale(1.1);
-    transition: 0.4s;
+.category-title {
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #231f1e;
+    margin: 10px 0 20px 120px;
+    justify-self: left;
 }
 
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 20px;
+    margin: 0 10px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-head {
+    display: grid;
+    place-items: center;
+    margin: 40px 0;
+}
+
+.category:hover div {
+    transform: scale(1.1);
+}
