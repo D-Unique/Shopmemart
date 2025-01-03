@@ -9,9 +9,8 @@ function LandPage() {
     <>
       <Header />
       <Banner />
-      
-      <Topcartegories />
       <Bestdeal />
+      <Topcartegories />
       <Footer />
     </>
   );
