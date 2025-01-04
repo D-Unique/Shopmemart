@@ -27,14 +27,3 @@ const SentenceDisplay = () => {
 };
 
 export default SentenceDisplay;
-
-/*
-Fashion
-Furniture
-Gadgets
-Beauty
-Medical Supplies
-Sports 
-Toys 
-Books
-*/
