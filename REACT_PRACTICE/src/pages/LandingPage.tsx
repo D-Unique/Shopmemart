@@ -3,6 +3,7 @@ import Banner from '../components/Banner';
 import { Footer } from '../components/Footer';
 import Topcartegories from '../components/cart/Topcartegories';
 import Bestdeal from '../components/cart/Bestdeal';
+import Todaybest from '../components/cart/Todaybest';
 
 function LandPage() {
   return (
@@ -11,6 +12,7 @@ function LandPage() {
       <Banner />
       <Bestdeal />
       <Topcartegories />
+      <Todaybest />
       <Footer />
     </>
   );

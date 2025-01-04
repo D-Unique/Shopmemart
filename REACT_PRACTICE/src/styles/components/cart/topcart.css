@@ -9,3 +9,125 @@
     transition: 0.4s;
 }
 
+.normTodaybutton {
+    margin: 0 20px 0 20px;
+    padding: 5px;
+    width: 100px;
+    border-radius:15px;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    text-align: center; 
+
+}
+.normTodaybutton:hover {
+
+    background-color: #003D29;
+    color: #ffffff;
+}
+
+.addtocartbutton {
+    margin: 0 20px 0 20px;
+    padding: 5px;
+    width: 100px;
+    border-radius:15px;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    text-align: center; 
+
+}
+
+.addtocartbutton:hover {
+
+    background-color: #003D29;
+    color: #ffffff;
+    transition: all 0.5s;
+}   
+.product-single-item{
+    width: 100%;
+}
+
+.cart-image:hover {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.cart-image:hover {
+    vertical-align: middle;
+    display: inline-block;
+    transition: 0.2s;
+    transform: translate3d(2px, 2px, 2px) scale3d(1.1, 1.1, 1.1) rotateX(10deg) rotateY(10deg) rotateZ(-1deg);
+    transform-style: preserve-3d;
+}
+
+.product-tab-thumbnail-wrap {
+
+    background-color: #F1F1F1;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+
+}
+.product-wishlist {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: #000000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: all 0.2s;
+    top: 0px;
+    right: 0px;
+    bottom: auto;
+    left: auto;
+    background-color: #ffffff;
+
+    border-radius: 100%;
+    cursor: pointer;
+
+}
+.product-wishlist:hover {
+    background-color: rgb(247, 73, 73);
+    color: #ffffff;
+    transition: all 0.5s;
+}
+
+
+.product-title-wrap {
+    justify-content: space-between;
+    align-items: center;
+    display: flex
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.product-color {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 16.5px;
+}
+
+.product-rating {
+    align-items: center;
+    display: flex;
+}
+
+.product-title {
+    z-index: 1;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.text-span {
+    font-size: 13px;
+    position: relative;
+    top: -5px;
+}
