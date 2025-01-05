@@ -1,3 +1,53 @@
+
+
+.addtocartbutton {
+    margin: 0 20px 0 20px;
+    padding: 5px;
+    width: 100px;
+    border-radius:15px;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    text-align: center; 
+
+}
+
+.addtocartbutton:hover {
+
+    background-color: #003D29;
+    color: #ffffff;
+    transition: all 0.5s;
+}  
+
+.bestdeal {
+    display: flex;
+    width: 100%;
+    max-width: 1360px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    overflow-x: auto;
+
+
+    /*justify-content: space-between;
+    gap: 50px;
+    
+
+    margin-top: 40px;
+    margin-bottom: 150px; */
+}
+.bestdeal::-webkit-scrollbar{
+    width: 0;
+}
+.bestdeal .product-single-item{
+    min-width: 400px;
+    margin: 20px
+}
+.bestdeal img:hover {
+    transform: scale(1.1);
+}
+
 .category-title {
     line-height: 40px;
     font-size: 28px;
@@ -27,52 +77,6 @@
     transform: scale(1.1);
 }
 
-/* .topcart:hover {
-    transform: scale(1.1);
-    transition: 0.4s;
-
-}  */
-
-.bestdeal img:hover {
-    transform: scale(1.1);
-}
-.normTodaybutton {
-    margin: 0 20px 0 20px;
-    padding: 5px;
-    width: 100px;
-    border-radius:15px;
-    background-color: #ffffff;
-    border: 1px solid gray;
-    text-align: center; 
-
-}
-.normTodaybutton:hover {
-
-    background-color: #003D29;
-    color: #ffffff;
-}
-
-.addtocartbutton {
-    margin: 0 20px 0 20px;
-    padding: 5px;
-    width: 100px;
-    border-radius:15px;
-    background-color: #ffffff;
-    border: 1px solid gray;
-    text-align: center; 
-
-}
-
-.addtocartbutton:hover {
-
-    background-color: #003D29;
-    color: #ffffff;
-    transition: all 0.5s;
-}   
-.product-single-item{
-    width: 100%;
-}
-
 .cart-image:hover {
     vertical-align: middle;
     display: inline-block;
@@ -85,6 +89,37 @@
     transform: translate3d(2px, 2px, 2px) scale3d(1.1, 1.1, 1.1) rotateX(10deg) rotateY(10deg) rotateZ(-1deg);
     transform-style: preserve-3d;
 }
+
+
+/* .topcart:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+
+}  */
+
+
+.normTodaybutton {
+    margin: 0 20px 0 20px;
+    padding: 5px;
+    width: 100px;
+    border-radius:15px;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    text-align: center; 
+
+}
+.active {
+    background-color: #003D29;
+    color: #ffffff;
+}
+
+
+ 
+.product-single-item{
+    width: 100%;
+    
+}
+
 
 .product-tab-thumbnail-wrap {
 

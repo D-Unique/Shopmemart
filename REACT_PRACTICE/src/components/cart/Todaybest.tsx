@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, MouseEvent } from 'react';
 import { HeartFill, StarFill} from 'react-bootstrap-icons';
 import { Row, Col } from 'react-bootstrap';
 import '../../styles/components/cart/topcart.css';
@@ -24,12 +24,9 @@ const Todaybest = () => {
     'Toys',
     'Books'
   ]
-  const [cartgories, setCartgories] = useState<string>('Fashion')
+  // const [cartgories, setCartgories] = useState<string>('Fashion')
   // handle click event
-  const handleClick = (e: any) => {
-    setCartgories(e.target.value)
-    setIsActive(true)
-  }
+  
 
   // // fetch data from backend
   // const getData = async () => {
@@ -92,7 +89,7 @@ const Todaybest = () => {
   //   };
   //   fetchData();
   // }, [cartgories])
-  const [isActive, setIsActive] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
     
 
 
@@ -103,16 +100,19 @@ const Todaybest = () => {
         style={{
           lineHeight: '40px',
           fontSize: '28px',
-          fontWeight: '700',
+          fontWeight: '800',
           color: '#231f1e',
-          margin: '180px 0 10px 40px',
+          margin: '180px 0 50px 40px',
         }}
       >
         Todays Best Deals for you!
       </h2>
         {botton.map((botton, index) => (
-          <button className='normTodaybutton'
-            key={index} value={botton} onClick={handleClick}>{botton}</button>
+          <button className={selectedIndex === index ? 'normTodaybutton active': 'normTodaybutton' }
+            key={index} value={botton} onClick={ (e: MouseEvent<HTMLButtonElement>) => {
+              // setCartgories((e.target as HTMLButtonElement).value)
+              setSelectedIndex(index)
+            }}>{botton}</button>
       ))}
       </div>
       <section>

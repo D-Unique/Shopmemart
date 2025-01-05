@@ -10,7 +10,7 @@ function LandPage() {
     <>
       <Header />
       <Banner />
-      <Bestdeal />
+      <Bestdeal /> 
       <Topcartegories />
       <Todaybest />
       <Footer />
