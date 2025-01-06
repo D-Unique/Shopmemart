@@ -1,7 +1,15 @@
 import User from '../utils/db/UserSchema.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+
+dotenv.config()
+const Secret = process.env.JWTSECRET
+
 class UsersController {
     static async getUser(req, res) {
-       res.send('from users')
+        const { name} = req.payload
+       res.send(`${name}`)
 
     }
 
@@ -19,10 +27,12 @@ class UsersController {
                     message: 'User already exists'
                 });
             }
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash(password, salt);
             const newuser = await User.create({
                 name,
                 email,
-                password
+                password: hashPassword
             });
             if (newuser) {
                 return res.status(201).json({
@@ -41,11 +51,31 @@ class UsersController {
     }
 
 
-
-
-
     static async loginUser(req, res) {
-        res.send('from login')
+        const { email, password } = req.body;
+        const user = await User.findOne({ email }).exec();
+        if (!user) {
+            return res.status(400).json({
+                message: 'No account found, Kindly Signup'
+            })
+        }
+        const match = await bcrypt.compare(password, user.password)
+        if (!match) {
+            return res.status(400).json({
+                message: 'Incorrect password'
+            })
+        }
+        const payload = {
+            exp: Math.floor(Date.now() / 1000) + (60 * 60),
+            id: user._id,
+            name: user.name
+
+        }
+        const token = await jwt.sign(payload, Secret, { algorithm: 'HS256' })
+        return res.status(200).set('Authorization', `Bearer ${token}`).json({
+            message: `${user.name} welcome back. Here is your token ${token}`
+        })
+          
     }
 }
 
