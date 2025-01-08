@@ -30,13 +30,9 @@ createRoot(document.getElementById('root')!).render(
     <ProductContextProvider>
     <CartContextProvider>
     <RouterProvider router={router}>
-<<<<<<< HEAD
       
       </RouterProvider>
   </CartContextProvider>
   </ProductContextProvider>
-=======
-    </RouterProvider>
->>>>>>> cadfd9a8bdd9aa75696115309fd685fd4908edfd
   </StrictMode>,
 )
