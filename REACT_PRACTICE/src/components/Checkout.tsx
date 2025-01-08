@@ -8,7 +8,7 @@ import ProductContext from '../context/ProductContext';
 
 
 function Checkout() {
-  const { cartState, openCart } = useContext(CartContext);
+  const { openCart, setOpenCart } = useContext(CartContext);
   const { products } = useContext(ProductContext);
   const handleClose = () => {
     const body = document.querySelector('body') as HTMLElement;
@@ -24,10 +24,10 @@ function Checkout() {
     Data.forEach((data) => {
       console.log(data.id);
     });
-    openCart(false);
+    setOpenCart(false);
   };
   return (
-    <div className={cartState ? 'checkoutsidebar-open' : 'checkoutsidebar'}>
+    <div className={openCart ? 'checkoutsidebar-open' : 'checkoutsidebar'}>
       <div id="checkout-content">
         <div className='checkout-header'>
           <h3> Your Cart </h3>

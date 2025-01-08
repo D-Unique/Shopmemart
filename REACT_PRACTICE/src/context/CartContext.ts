@@ -1,5 +1,9 @@
 import React from 'react';
-
-const CartContext = React.createContext({});
+type CartContextType = {
+    openCart: boolean
+    setOpenCart: (openCart: boolean) => void
+    setOverflow: () => void
+}
+const CartContext = React.createContext({} as CartContextType);
 
 export default CartContext;

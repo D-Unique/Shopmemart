@@ -2,6 +2,60 @@ import '../styles/pages/SignInPage.css';
 import { Link } from 'react-router-dom';
 
 export default function SignIn() {
+
+  // On page load, check if username is stored in localStorage
+  window.addEventListener('load', () => {
+    const storedEmail = localStorage.getItem('email');
+    const storedPassword = localStorage.getItem('password');
+    if (storedEmail && storedPassword) {
+      const email = document.getElementById('email') as HTMLInputElement;
+      const password = document.getElementById('password') as HTMLInputElement;
+      const remember = document.getElementById('remember') as HTMLInputElement;
+      email.value = storedEmail;
+      password.value = storedPassword;
+      remember.checked = true;
+    }
+  });
+
+
+  const handleSingin = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    const baseurl = 'http://localhost:3000';
+    const path = '/shomemart.com/api/v1/user/login';
+    const url = baseurl + path;
+    const email = document.getElementById('email') as HTMLInputElement;
+    const password = document.getElementById('password') as HTMLInputElement;
+    const remember = document.getElementById('remember') as HTMLInputElement;
+    const data = {
+      email: email.value,
+      password: password.value
+    };
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+    const request = new Request(url, options);
+    
+    const response = await fetch(request)
+    const result = await response.json();
+    console.log(result);
+
+    if (remember.checked) {
+      localStorage.setItem('email', email.value);
+      localStorage.setItem('password', password.value);
+    } else {
+      localStorage.removeItem('email');
+      localStorage.removeItem('password');
+    }
+    email.value = '';
+    password.value = '';
+    remember.checked = false;
+    //reacttoastify
+  }
+  
   return (
     <div className="signin-page">
       <div className="signin-container">
@@ -33,7 +87,7 @@ export default function SignIn() {
             id="remember"
           />
           <label className="remember-me ps-2" htmlFor="remember">Remember me</label>
-          <button type="submit" className="btn btn-primary w-100 mt-2 mb-2">
+          <button type="submit" className="btn btn-primary w-100 mt-2 mb-2" onClick={(e) => handleSingin(e)}>
             Sign In
           </button>
         </form>

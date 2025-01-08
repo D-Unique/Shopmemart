@@ -3,7 +3,7 @@ import CartContext from './CartContext.ts';
 
 
 const CartContextProvider = ({ children }: { children: ReactNode }) => {
-    const [cartState, openCart] = useState<boolean>(true);
+    const [openCart, setOpenCart] = useState<boolean>(true);
     function setOverflow() {
         const body = document.querySelector('body') as HTMLElement;
         body.style.pointerEvents = 'none';
@@ -12,7 +12,7 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
         side.style.pointerEvents = 'auto';
     }
     return (
-        <CartContext.Provider value={{ cartState, openCart, setOverflow }}>
+        <CartContext.Provider value={{ openCart, setOpenCart, setOverflow }}>
             {children}
         </CartContext.Provider>
     );

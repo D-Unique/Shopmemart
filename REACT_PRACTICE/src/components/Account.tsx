@@ -8,11 +8,11 @@ import ProductContext from '../context/ProductContext';
 import { Link } from 'react-router-dom';
 
 function Account() {
-  const { openCart, setOverflow } = useContext(CartContext);
+  const { setOpenCart, setOverflow } = useContext(CartContext);
   const { getTotalProducts } = useContext(ProductContext);
   const totalProducts = getTotalProducts();
   const handleOpenCart = () => {
-    openCart(true);
+    setOpenCart(true);
     setOverflow();
 
   }
