@@ -1,9 +1,11 @@
 import express from 'express';
-import cors from 'cors';
+import corsmiddleware from './middlewares/Cors.js';
 import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+
+
 
 // database connection
 dotenv.config();
@@ -19,8 +21,9 @@ mongoose
 
 // express server connection
 const app = express()
+app.use(corsmiddleware);
 const port = process.env.PORT || 3000
-app.use(cors());
+
 app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Home page')
