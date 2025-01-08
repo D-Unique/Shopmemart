@@ -114,7 +114,23 @@
 }
 
 
- 
+.minicart-button {
+    background-color: #ffffff;
+    text-align: center;
+    border: none;
+    max-width: 20px;
+    margin-bottom: 10px;
+}
+
+.minicart-image {
+    background-size: cover;
+    width: 20%;
+    height: 40%;
+}
+.minicart-trash {
+    border: none;
+    background-color: #6393C1;
+}
 .product-single-item{
     width: 100%;
     

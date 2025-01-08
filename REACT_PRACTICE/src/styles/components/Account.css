@@ -14,16 +14,36 @@
 }
 
 .cart {
+    position: relative;
     font-weight: 500;
     font-size: 16px;
+    width: 3rem;
+    height: 3rem;
     border: 1px solid transparent;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart:hover {
-    color: #534d6e;
-    border: 1px solid white;
+    color: #534d6e !important;
 }
 
 .cart-icon {
     font-size: 22px;
+}
+
+
+
+.cart-button {
+    display: flex;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, 25%);
+
+}
+.cart-button:hover {
+    border: none;
 }

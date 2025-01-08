@@ -1,17 +1,10 @@
 import { useEffect, useState, MouseEvent } from 'react';
-import { HeartFill, StarFill} from 'react-bootstrap-icons';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import Cart from './Cart';
 import '../../styles/components/cart/topcart.css';
+import Data from '../../data';
 
-interface data {
-  name: string;
-  image: string;
-  height: string;
-  width: string;
-  description?: string;
-  price: string;
-  rating?: number; 
-}
+
 
 const Todaybest = () => {
   const botton: string[] = [
@@ -35,52 +28,7 @@ const Todaybest = () => {
   //   return data;
   // }
 
-  const data: data[] = [{
-    name: 'MacBook',
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-    height: '200px',
-    width: '200px',
-    description: 'Fits 13-13.3 Inch MacBook Air/Pro',
-    price: '15.99',
-    rating: 4,
-  },
-    {
-      name: 'Mens Slim Fit T-Shirts',
-      image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-      height: '200px',
-      width: '200px',
-      description: 'Slim fit, perfect for casual wear',
-      price: '22.99',
-      rating: 5,
-    },
-    {
-      name: 'Mens Cotton Jacket',
-      image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-      height: '200px',
-      width: '200px',
-      description: 'Great for winter and summer',
-      price: '55.99',
-      rating: 4,
-    },
-    {
-      name: 'Mens Casual Slim Fit',
-      image: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
-      height: '200px',
-      width: '200px',
-      description: '',
-      price: '15.99',
-      rating: 4,
-    },
-    {
-      name: 'John Hardy Women\'s Legends Naga Gold',
-      image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
-      height: '200px',
-      width: '200px',
-      description: 'From our Legends Collection',
-      price: '695',
-      rating: 4,
-    }
-  ]
+ 
   // const [data, setData] = useState<data[]>([])
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -127,35 +75,7 @@ const Todaybest = () => {
           padding: '0 40px',
         }}
       >
-        {data.map((cartgories: data) => (
-          <Col
-            className="product-single-item">
-            <div className='product-tab-thumbnail-wrap'>
-
-              <img className='cart-image' src={cartgories.image} alt={cartgories.name} height={cartgories.height} width={cartgories.width} loading='lazy' />
-              <div className='product-wishlist'><HeartFill /></div>
-            </div>
-            <div style={{
-              display: 'flex', flexDirection: 'column', backgroundColor: 'white', gap: '5px', padding: '10px', borderRadius: '10px'
-            }}>
-              <div className='product-title-wrap'>
-                <div className='product-title'>{cartgories.name}</div>
-                <div className='product-price'>
-                  <span className='text-span'>$</span>
-                  {cartgories.price}</div>
-              </div>
-              <div className='product-color'>{cartgories.description ? cartgories.description : 'No details'}</div>
-              <div className='product-title-wrap'>
-                <div className='product-rating'>{Array.from({ length: cartgories.rating || 0 }, (_, i) => (
-                <span><StarFill key={i} /></span>
-              ))}</div>
-                <div><button className='addtocartbutton'>Add to cart</button></div>
-              </div>
-            </div> 
-       
-            </Col>
-            
-        ))}
+       <Cart data={Data} />
       </Row>
     </section>
     </>

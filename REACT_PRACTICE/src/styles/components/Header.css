@@ -3,6 +3,9 @@ div#header {
     background: linear-gradient(to right, #034117, #34a359);
     width: 100%;
     padding: 5px 5px;
+    position: sticky;
+    top: 0; 
     
   }
+  
   

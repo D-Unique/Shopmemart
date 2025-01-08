@@ -12,9 +12,10 @@ import Searchbar from './Searchbar';
 import Account from './Account';
 import { Navbar } from 'react-bootstrap';
 
+
 function Header() {
   return (
-    <Navbar sticky='top' style={{ padding: '0', margin: '0' }}>
+    <Navbar sticky='top' style={{ padding: '0', margin: '0', position: 'sticky', top: '0', zIndex: 1000 }}>
       <div id="header">
         <Row>
           <Col className="text-dark" xs={6}>
