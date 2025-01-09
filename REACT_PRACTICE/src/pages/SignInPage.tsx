@@ -1,6 +1,6 @@
 import '../styles/pages/SignInPage.css';
 import { Link } from 'react-router-dom';
-import { toast, t } from 'sonner';
+import { toast } from 'sonner';
 
 export default function SignIn() {
 
