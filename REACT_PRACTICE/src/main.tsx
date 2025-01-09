@@ -7,6 +7,7 @@ import ProductContextProvider from './context/ProductContextProvider.tsx'
 import SignIn from './pages/SignInPage';
 import SignUp from './pages/SignUpPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'sonner'
 
 
 
@@ -28,8 +29,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ProductContextProvider>
-    <CartContextProvider>
-    <RouterProvider router={router}>
+      <CartContextProvider>
+        <Toaster />
+        <RouterProvider router={router}>
+         
       
       </RouterProvider>
   </CartContextProvider>

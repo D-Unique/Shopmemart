@@ -1,5 +1,6 @@
 import '../styles/pages/SignInPage.css';
 import { Link } from 'react-router-dom';
+import { toast, t } from 'sonner';
 
 export default function SignIn() {
 
@@ -40,8 +41,16 @@ export default function SignIn() {
     const request = new Request(url, options);
     
     const response = await fetch(request)
+    console.log(response.status);
+    if (response.status === 400) {
+      const result = await response.json();
+      console.log(result.message);
+      toast.error(result.message, {
+        position: 'bottom-center'
+      });
+    }
     const result = await response.json();
-    console.log(result);
+    toast.success(result.message);
 
     if (remember.checked) {
       localStorage.setItem('email', email.value);
@@ -53,7 +62,8 @@ export default function SignIn() {
     email.value = '';
     password.value = '';
     remember.checked = false;
-    //reacttoastify
+    window.location.href = '/';
+  
   }
   
   return (
