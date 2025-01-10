@@ -12,7 +12,6 @@ function App() {
     <div>
       <LandPage />
     </div>
-  
     </>
   )
 }

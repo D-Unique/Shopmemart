@@ -7,8 +7,8 @@ import ProductContextProvider from './context/ProductContextProvider.tsx'
 import SignIn from './pages/SignInPage';
 import SignUp from './pages/SignUpPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Toaster } from 'sonner'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const router = createBrowserRouter([
@@ -30,10 +30,8 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ProductContextProvider>
       <CartContextProvider>
-        <Toaster />
+        <ToastContainer />
         <RouterProvider router={router}>
-         
-      
       </RouterProvider>
   </CartContextProvider>
   </ProductContextProvider>
