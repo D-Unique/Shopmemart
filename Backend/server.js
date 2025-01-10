@@ -27,8 +27,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Home page')
 });
-app.use('/shomemart.com/api/v1/user', userRoutes)
-app.use('/shomemart.com/api/v1/product', productRoutes)
+app.use('/api/v1/user', userRoutes)
+app.use('/api/v1/product', productRoutes)
 
 
 

@@ -1,36 +1,43 @@
 import '../styles/pages/SignInPage.css';
 import { Link } from 'react-router-dom';
-import { toast } from 'sonner';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import React, { useRef, useState } from 'react';
 
 export default function SignIn() {
+  const [isLoading, setIsLoading] = useState(false); // State for loading
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const rememberRef = useRef<HTMLInputElement>(null);
 
-  // On page load, check if username is stored in localStorage
-  window.addEventListener('load', () => {
+  React.useEffect(() => {
+    // On page load, check if username is stored in localStorage
     const storedEmail = localStorage.getItem('email');
     const storedPassword = localStorage.getItem('password');
-    if (storedEmail && storedPassword) {
-      const email = document.getElementById('email') as HTMLInputElement;
-      const password = document.getElementById('password') as HTMLInputElement;
-      const remember = document.getElementById('remember') as HTMLInputElement;
-      email.value = storedEmail;
-      password.value = storedPassword;
-      remember.checked = true;
+    if (storedEmail && storedPassword && emailRef.current && passwordRef.current && rememberRef.current) {
+      emailRef.current.value = storedEmail;
+      passwordRef.current.value = storedPassword;
+      rememberRef.current.checked = true;
     }
-  });
+  }, []);
 
-
-  const handleSingin = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSignin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const baseurl = 'http://localhost:3000';
-    const path = '/shomemart.com/api/v1/user/login';
-    const url = baseurl + path;
-    const email = document.getElementById('email') as HTMLInputElement;
-    const password = document.getElementById('password') as HTMLInputElement;
-    const remember = document.getElementById('remember') as HTMLInputElement;
-    const data = {
-      email: email.value,
-      password: password.value
-    };
+    setIsLoading(true);
+    const url = 'http://localhost:3000/api/v1/user/signin';
+
+    // Access input values
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
+    const remember = rememberRef.current?.checked;
+
+    if (!email || !password) {
+      toast.error('Please fill in all required fields.', { position: 'bottom-center' });
+      setIsLoading(false);
+      return;
+    }
+
+    const data = { email, password };
     const options = {
       method: 'POST',
       headers: {
@@ -38,45 +45,59 @@ export default function SignIn() {
       },
       body: JSON.stringify(data),
     };
-    const request = new Request(url, options);
-    
-    const response = await fetch(request)
-    console.log(response.status);
-    if (response.status === 400) {
-      const result = await response.json();
-      console.log(result.message);
-      toast.error(result.message, {
-        position: 'bottom-center'
-      });
-    }
-    const result = await response.json();
-    toast.success(result.message);
 
-    if (remember.checked) {
-      localStorage.setItem('email', email.value);
-      localStorage.setItem('password', password.value);
-    } else {
-      localStorage.removeItem('email');
-      localStorage.removeItem('password');
+    try
+    {
+      const response = await fetch(url, options);
+      const result = await response.json();
+
+      if (response.status === 400) {
+        toast.error(result.message, { position: 'bottom-center' });
+        setIsLoading(false);
+        return;
+      }
+
+      toast.success(result.message);
+
+      if (remember) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+      } else {
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+      }
+
+      // Clear inputs
+      if (emailRef.current) emailRef.current.value = '';
+      if (passwordRef.current) passwordRef.current.value = '';
+      if (rememberRef.current) rememberRef.current.checked = false;
+
+      window.location.href = '/';
     }
-    email.value = '';
-    password.value = '';
-    remember.checked = false;
-    window.location.href = '/';
-  
-  }
-  
+    catch (error)
+    {
+      toast.error('An error occurred. Please try again.', { position: 'bottom-center' });
+      console.error(error);
+    }
+    // Set loading to false after the request ends
+    finally
+    {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="signin-page">
       <div className="signin-container">
         <h1>Welcome back</h1>
-        <p>Please Enter your details</p>
-        <form>
+        <p>Please enter your details</p>
+        <form onSubmit={(e) => handleSignin(e)}>
           <div className="form-group mb-2">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
+              ref={emailRef}
               placeholder="Enter your email"
               className="form-control"
               required
@@ -87,22 +108,27 @@ export default function SignIn() {
             <input
               type="password"
               id="password"
+              ref={passwordRef}
               placeholder="Enter your password"
               className="form-control"
               required
             />
           </div>
-          <input
-            type="checkbox"
-            id="remember"
-          />
-          <label className="remember-me ps-2" htmlFor="remember">Remember me</label>
-          <button type="submit" className="btn btn-primary w-100 mt-2 mb-2" onClick={(e) => handleSingin(e)}>
-            Sign In
+          <input type="checkbox" id="remember" ref={rememberRef} />
+          <label className="remember-me ps-2" htmlFor="remember">
+            Remember me
+          </label>
+          <button
+            type="submit"
+            className="btn btn-primary w-100 mt-2 mb-2"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <p>Don't have an account?
-          <Link to="/signup" className='ps-2 text-decoration-none'>
+        <p>
+          Don't have an account?
+          <Link to="/signup" className="ps-2 text-decoration-none">
             Sign Up
           </Link>
         </p>

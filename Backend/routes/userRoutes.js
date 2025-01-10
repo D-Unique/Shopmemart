@@ -4,8 +4,8 @@ import authenticateToken from '../middlewares/AuthenticateJwtToken.js';
 
 const router = express.Router()
 
-router.post('/register', UsersController.registerUser)
-router.post('/login', UsersController.loginUser)
+router.post("/signup", UsersController.signUpUser);
+router.post("/signin", UsersController.signInUser);
 router.get('/', authenticateToken, UsersController.getUser)
 
 export default router;
