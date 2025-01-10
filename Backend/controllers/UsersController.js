@@ -2,14 +2,16 @@ import User from '../utils/db/UserSchema.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+import { ObjectId } from 'mongodb';
 
 dotenv.config()
 const Secret = process.env.JWTSECRET
 
 class UsersController {
     static async getUser(req, res) {
-        const { name} = req.payload
-       res.send(`${name}`)
+        const { id } = req.payload
+        const user = await User.findOne({ _id: new ObjectId(id)})
+        return res.status(200).json({user})
 
     }
 
@@ -32,7 +34,7 @@ class UsersController {
             const newuser = await User.create({
                 name,
                 email,
-                password: hashPassword
+                password: hashPassword,
             });
             if (newuser) {
                 return res.status(201).json({
@@ -68,7 +70,8 @@ class UsersController {
         const payload = {
             exp: Math.floor(Date.now() / 1000) + (60 * 60),
             id: user._id,
-            name: user.name
+            name: user.name,
+            role: user.role
 
         }
         const token = await jwt.sign(payload, Secret, { algorithm: 'HS256' })
@@ -76,6 +79,13 @@ class UsersController {
             message: `${user.name} welcome back. Here is your token ${token}`
         })
           
+    }
+
+    static async logoutUser(req, res) {
+        req.headers('Authorization') = null
+        return res.status(200).json({
+            message: 'You have successfully logged out'
+        })
     }
 }
 

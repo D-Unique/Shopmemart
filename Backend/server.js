@@ -6,7 +6,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 
-
 // database connection
 dotenv.config();
 const url = process.env.DB_URL;
