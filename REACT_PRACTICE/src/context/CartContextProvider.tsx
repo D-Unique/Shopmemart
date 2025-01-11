@@ -3,7 +3,7 @@ import CartContext from './CartContext.ts';
 
 
 const CartContextProvider = ({ children }: { children: ReactNode }) => {
-    const [openCart, setOpenCart] = useState<boolean>(true);
+    const [openCart, setOpenCart] = useState<boolean>(false);
     function setOverflow() {
         const body = document.querySelector('body') as HTMLElement;
         body.style.pointerEvents = 'none';
