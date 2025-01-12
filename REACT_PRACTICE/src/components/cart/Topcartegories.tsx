@@ -1,5 +1,6 @@
 import { fashion, books, furniture, beauty, gadgets, medicalSupplies, toys, sports } from '../../assets';
 import '../../styles/components/cart/topcart.css';
+import { Link } from 'react-router-dom';
 
 interface topcart {
   name: string;
@@ -49,12 +50,14 @@ function Topcartegories(): JSX.Element {
         </div>
         <div className='category-grid topcart'>
           {topCategories.map((category: topcart) => (
-            <div
-              key={category.name} // Ensure you have a unique key
+            <Link
+              to="/signin"
+              key={category.name}
               style={{
                 position: 'relative',
-                height: '350px',
-                borderRadius: '8px',
+                height: '220px',
+                width: '100%',
+                borderRadius: '7px',
                 overflow: 'hidden',
                 transition: 'transform 0.3s ease',
               }}
@@ -84,7 +87,7 @@ function Topcartegories(): JSX.Element {
                   left: '50%',
                   transform: 'translateX(-50%)',
                   color: 'white',
-                  fontSize: '25px',
+                  fontSize: '22px',
                   fontWeight: '800',
                   margin: '0',
                   textAlign: 'center',
@@ -92,22 +95,11 @@ function Topcartegories(): JSX.Element {
               >
                 {category.name}
               </h3>
-            </div>
-          ))}
+            </Link>
+          ))}        
         </div>
       </div>
     </section>
   );
 }
 export default Topcartegories;
-
-/*
-Fashion
-Furniture
-Gadgets
-Beauty
-Medical Supplies
-Sports 
-Toys 
-Books
-*/

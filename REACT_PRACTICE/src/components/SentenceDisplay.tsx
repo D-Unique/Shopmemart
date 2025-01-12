@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 
 const SentenceDisplay = () => {
   const sentences = [
-    "Step into our store and explore a diverse range of products designed to meet all your needs",
-    "From trendy fashion to essential home goods, we have everything you need under one roof",
-    "Our knowledgeable staff is always ready to assist you in finding the perfect items for your lifestyle",
-    "Enjoy exclusive deals and promotions that make shopping with us even more rewarding",
-    "Join our loyal customer community and experience the joy of shopping where quality meets affordability"
+    "Yusuf Mustapha Opeyemi and Emmanuel Unigwe are the creators of ShopMeMart.",
+    "ShopMeMart is developed as part of the ALX Webstack portfolio project.",
+    "Step into our store and explore a diverse range of products designed to meet all your needs.",
+    "From trendy fashion to essential home goods, we have everything you need under one roof.",
+    "Our knowledgeable staff is always ready to assist you in finding the perfect items for your lifestyle.",
+    "Enjoy exclusive deals and promotions that make shopping with us even more rewarding.",
+    "Join our loyal customer community and experience the joy of shopping where quality meets affordability."
   ];
 
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);

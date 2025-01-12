@@ -9,14 +9,12 @@ import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 
 
-
 function LandPage() {
   const { cartState } = useContext(CartContext);
   return (
     <>
     <Header />
     <div className={cartState ? 'landingpage is_open' : 'landingpage'}>
-      
       <Checkout />
       <Banner />
       <Bestdeal /> 
@@ -24,7 +22,7 @@ function LandPage() {
       <Todaybest />
       <Footer />
       </div>
-      </>
+    </>
   );
 }
 export default LandPage;

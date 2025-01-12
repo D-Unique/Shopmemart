@@ -19,7 +19,7 @@ export default function Searchbar() {
       <input
         className="p-29"
         type="search"
-        placeholder="Search Shopmemart..."
+        placeholder="Search ShopMeMart..."
         onChange={handleChange}
         value={searchString}
         name="search"

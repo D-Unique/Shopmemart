@@ -1,18 +1,17 @@
-// Image carousel beside the banner
-
 import React, { useEffect, useState } from 'react';
 import '../styles/components/Carousel.css';
+
 interface CarouselProps {
   images: string[];
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => { //This is the carousel component
+const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); //This  Changes the images every 3 seconds
+    }, 3000); // Changes the images every 3 seconds
 
     return () => clearInterval(interval);
   }, [images.length]);

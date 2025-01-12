@@ -1,7 +1,8 @@
 #logo {
     font-family: fantasy;
     color: white;
-    padding-left: 25px;
+    padding-left: 35px;
+    margin-bottom: 0;
 }
 
 #pmenus {
@@ -14,8 +15,4 @@
 
 #pmenus:hover {
     text-decoration: underline;
-}
-
-div.col7 {
-    margin-top: 10px;
 }

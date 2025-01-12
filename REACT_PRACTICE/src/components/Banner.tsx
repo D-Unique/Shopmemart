@@ -17,6 +17,7 @@ const images: string[] = [
   image9
 ];
 
+
 function Banner() {
   return (
     <div>

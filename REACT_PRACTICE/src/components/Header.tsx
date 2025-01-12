@@ -4,7 +4,6 @@ import '../styles/components/Header.css';
 import Nav from './Nav';
 import "../styles/components/Nav.css";
 //bootstrap
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 

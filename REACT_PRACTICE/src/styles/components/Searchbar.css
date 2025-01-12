@@ -14,17 +14,17 @@
 
 #header-search button {
     height: 100%;
-    border: 1px solid rgb(158, 75, 103);
+    border: 1px solid #e9a745;
     padding: 4.39px 10px;
-    background-color: rgb(160, 84, 109);
+    background-color: #ebac4e;
     color: white;
     font-size: 16px;
     font-weight: bolder;
     transition: background-color 0.3s, border-color 0.3s;
 }
 #header-search button:hover { 
-    border: 1px solid rgb(121, 53, 75);
-    background-color: rgb(129, 58, 82);
+    border: 1px solid #e69823;
+    background-color: #e9a032;
   }
 
 #header-search {
