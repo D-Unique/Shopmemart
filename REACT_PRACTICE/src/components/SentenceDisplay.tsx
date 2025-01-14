@@ -5,10 +5,10 @@ const SentenceDisplay = () => {
     "Yusuf Mustapha Opeyemi and Emmanuel Unigwe are the creators of ShopMeMart.",
     "ShopMeMart is developed as part of the ALX Webstack portfolio project.",
     "Step into our store and explore a diverse range of products designed to meet all your needs.",
-    "From trendy fashion to essential home goods, we have everything you need under one roof.",
-    "Our knowledgeable staff is always ready to assist you in finding the perfect items for your lifestyle.",
-    "Enjoy exclusive deals and promotions that make shopping with us even more rewarding.",
-    "Join our loyal customer community and experience the joy of shopping where quality meets affordability."
+    "From trendy fashion to essential home goods, our platform is designed to provide a seamless shopping experience.",
+    "ShopMeMart will undergo numerous changes and improvements over time to enhance user experience.",
+    "For now, users can shop conveniently and have their products delivered right to their doorstep.",
+    "We are committed to evolving our platform to better serve our customers and meet their shopping needs."
   ];
 
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);

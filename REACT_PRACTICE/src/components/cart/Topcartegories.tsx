@@ -1,3 +1,4 @@
+import { div } from 'framer-motion/client';
 import { fashion, books, furniture, beauty, gadgets, medicalSupplies, toys, sports } from '../../assets';
 import '../../styles/components/cart/topcart.css';
 import { Link } from 'react-router-dom';
@@ -51,50 +52,51 @@ function Topcartegories(): JSX.Element {
         <div className='category-grid topcart'>
           {topCategories.map((category: topcart) => (
             <Link
-              to="/signin"
-              key={category.name}
-              style={{
-                position: 'relative',
-                height: '220px',
-                width: '100%',
-                borderRadius: '7px',
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-            >
-              <img
-                src={category.image}
-                alt={category.name}
+                to="/signin"
+                key={category.name}
                 style={{
+                  position: 'relative',
+                  height: '220px',
                   width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
+                  borderRadius: '7px',
+                  overflow: 'hidden',
+                  transition: 'transform 0.3s ease',
                 }}
-              />
-              <h3
-                style={{
-                  position: 'absolute',
-                  top: '5px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  color: 'white',
-                  fontSize: '22px',
-                  fontWeight: '800',
-                  margin: '0',
-                  textAlign: 'center',
+                className='box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);'
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
-                {category.name}
-              </h3>
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <h3
+                  style={{
+                    position: 'absolute',
+                    top: '5px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    color: 'white',
+                    fontSize: '22px',
+                    fontWeight: '800',
+                    margin: '0',
+                    textAlign: 'center',
+                  }}
+                >
+                  {category.name}
+                </h3>
             </Link>
           ))}        
         </div>

@@ -58,7 +58,7 @@ function Cart({ data }: Props) {
     <>
 
   {data.map((cartgories: product) => (
-    <Col className="product-single-item" key={cartgories.id}>
+    <Col xs={2} className="product-single-item m-0 mb-3" key={cartgories.id}>
       <div className='product-tab-thumbnail-wrap'>
 
         <img className='cart-image' src={cartgories.image} alt={cartgories.name} height={cartgories.height} width={cartgories.width} loading='lazy' />
@@ -70,8 +70,9 @@ function Cart({ data }: Props) {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: 'white',
-        gap: '5px', padding: '10px',
-        borderRadius: '10px'}}>
+        gap: '5px',
+        padding: '10px',
+      }}>
           
         <div className='product-title-wrap'>
           <div className='product-title'>
@@ -84,15 +85,10 @@ function Cart({ data }: Props) {
         </div>
         <div className='product-color'>{cartgories.description ? cartgories.description : 'No details'}</div>
         <div className='product-title-wrap'>
-          {/* <div className='product-rating'>{Array.from({ length: cartgories.rating || 0 }, (_, i) => (
-          <span><StarFill key={i} /></span>
-        ))}</div> */}
           <div><button className='addtocartbutton' onClick={()=> product.addOneProduct(cartgories.id)}>Add to cart</button></div>
         </div>
-      </div> 
- 
+      </div>
     </Col>
-      
   ))}
 </>
   )

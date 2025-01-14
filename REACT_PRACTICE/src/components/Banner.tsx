@@ -37,7 +37,7 @@ function Banner() {
               transformStyle: 'preserve-3d',
             }}
           >
-            Start Shopping
+            Shop Now
           </Button>
         </div>
         <div className='image-div'>

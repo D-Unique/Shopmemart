@@ -8,10 +8,12 @@ const Bestdeal = () => {
   
   return (
     <>
-      <h3 className='category-title mg-t5'>Todays Best Deals for you!</h3>
-      <section className='bestdeal'>
-        <Cart data={Data} />
-      </section>
+      <div className='best-deal-div'>
+        <h3 className='category-title'>Todays Best Deals for you!</h3>
+        <div className='bestdeal'>
+          <Cart data={Data} />
+        </div>
+      </div>
     </>
   );
 }

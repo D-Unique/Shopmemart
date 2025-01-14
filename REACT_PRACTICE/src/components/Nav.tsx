@@ -4,7 +4,7 @@ import Row from "react-bootstrap/esm/Row";
 import "../styles/components/Nav.css";
 
 export default function Nav() {
-  const pMenus: string[] = ["Categories", "Deals", "What's New", "Delivery"];
+  const pMenus: string[] = ["Categories", "Best Deals", "What's New"];
   return (
     <>
       <Row className="mt-1">

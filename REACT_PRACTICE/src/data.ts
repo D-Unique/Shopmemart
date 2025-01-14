@@ -52,14 +52,24 @@ const Data: data[] = [{
     },
     {
       id:5,
-      name: 'John Hardy Women\'s Legends Naga Gold',
+      name: 'John Hardy Women\'s Legends Gold',
       image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
       height: '200px',
       width: '200px',
       description: 'From our Legends Collection',
       price: 695,
       rating: 4,
-    }
+    },
+  {
+    id: 6,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+  }
   ]
 
 export default Data

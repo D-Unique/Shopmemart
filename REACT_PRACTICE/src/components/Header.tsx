@@ -16,14 +16,14 @@ function Header() {
   return (
     <Navbar sticky='top' style={{ padding: '0', margin: '0', position: 'sticky', top: '0', zIndex: 1000 }}>
       <div id="header">
-        <Row>
+        <Row className='no-padding'>
           <Col className="text-dark" xs={6}>
             <Nav />
           </Col>
-          <Col className="text-dark d-flex justify-content-center align-items-center no-padding">
+          <Col xs={3} className="text-dark d-flex justify-content-center align-items-center no-padding">
             <Searchbar />
           </Col>
-          <Col className="text-dark d-flex justify-content-center align-items-center">
+          <Col xs={3} className="text-dark d-flex justify-content-center align-items-center no-padding">
             <Account />
           </Col>
         </Row>
