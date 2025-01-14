@@ -3,10 +3,10 @@ import Banner from '../components/Banner';
 import { Footer } from '../components/Footer';
 import Topcartegories from '../components/cart/Topcartegories';
 import Bestdeal from '../components/cart/Bestdeal';
-import Todaybest from '../components/cart/Todaybest';
 import Checkout from '../components/Checkout';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
+import BestSellers from '../components/cart/BestSellers';
 
 
 function LandPage() {
@@ -19,7 +19,7 @@ function LandPage() {
       <Banner />
       <Bestdeal /> 
       <Topcartegories />
-      <Todaybest />
+      <BestSellers />
       <Footer />
       </div>
     </>

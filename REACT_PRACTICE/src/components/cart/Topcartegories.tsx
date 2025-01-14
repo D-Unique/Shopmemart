@@ -1,4 +1,3 @@
-import { div } from 'framer-motion/client';
 import { fashion, books, furniture, beauty, gadgets, medicalSupplies, toys, sports } from '../../assets';
 import '../../styles/components/cart/topcart.css';
 import { Link } from 'react-router-dom';
