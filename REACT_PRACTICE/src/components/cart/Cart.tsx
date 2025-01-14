@@ -1,17 +1,18 @@
-import { Col } from 'react-bootstrap'
-import { HeartFill, StarFill } from 'react-bootstrap-icons';
-import { useState, useContext } from 'react';
+import { Col } from 'react-bootstrap';
+import StarRating from './StarRating';
+import { HeartFill } from 'react-bootstrap-icons';
+import { useContext } from 'react';
 import ProductContext from '../../context/ProductContext';
 
 interface product {
-    id: number;
-    name: string;
-    image: string;
-    height: string;
-    width: string;
-    description?: string;
-    price: number;
-    rating?: number; 
+  id: number;
+  name: string;
+  image: string;
+  height: string;
+  width: string;
+  description?: string;
+  price: number;
+  rating?: number;
 }
 
 
@@ -19,7 +20,7 @@ interface product {
 interface Props {
   data: product[]
 }
-  
+
 // interface Product {
 //       id: number;
 //       name: string;
@@ -40,7 +41,7 @@ function Cart({ data }: Props) {
   // const [productImage, setProductImage] = useState<string>('')
 
 
-  const product  = useContext(ProductContext)
+  const product = useContext(ProductContext)
 
   // const handleAddToCart = (categorie: product, index: number) => {
 
@@ -56,41 +57,45 @@ function Cart({ data }: Props) {
   // }
   return (
     <>
+      {data.map((cartgories: product) => (
+        <Col xs={2} className="product-single-item m-0 mb-3" key={cartgories.id}>
+          <div className='product-tab-thumbnail-wrap'>
 
-  {data.map((cartgories: product) => (
-    <Col xs={2} className="product-single-item m-0 mb-3" key={cartgories.id}>
-      <div className='product-tab-thumbnail-wrap'>
+            <img className='cart-image' src={cartgories.image} alt={cartgories.name} height={cartgories.height} width={cartgories.width} loading='lazy' />
+            <div className='product-wishlist'>
+              <HeartFill />
+            </div>
+          </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'white',
+            gap: '5px',
+            padding: '10px',
+          }}>
 
-        <img className='cart-image' src={cartgories.image} alt={cartgories.name} height={cartgories.height} width={cartgories.width} loading='lazy' />
-        <div className='product-wishlist'>
-          <HeartFill />
-        </div>
-      </div>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: 'white',
-        gap: '5px',
-        padding: '10px',
-      }}>
-          
-        <div className='product-title-wrap'>
-          <div className='product-title'>
-            {cartgories.name}
+            <div className='product-title-wrap'>
+              <div className='product-title'>
+                {cartgories.name}
+              </div>
+              <div className='product-price'>
+                <span className='text-span'>$</span>
+                {cartgories.price}
+              </div>
+            </div>
+            <div className='product-color'>
+              {
+                cartgories.description ? cartgories.description : 'No description.'
+              }
+            </div>
+            <div className='product-title-wrap'>
+              <StarRating rating={ cartgories.rating || 0} color="gold" />
+              <div><button className='add-to-cart-button' onClick={() => product.addOneProduct(cartgories.id)}>Add to cart</button></div>
+            </div>
           </div>
-          <div  className='product-price'>
-            <span className='text-span'>$</span>
-              {cartgories.price}
-          </div>
-        </div>
-        <div className='product-color'>{cartgories.description ? cartgories.description : 'No details'}</div>
-        <div className='product-title-wrap'>
-          <div><button className='addtocartbutton' onClick={()=> product.addOneProduct(cartgories.id)}>Add to cart</button></div>
-        </div>
-      </div>
-    </Col>
-  ))}
-</>
+        </Col>
+      ))}
+    </>
   )
 }
 

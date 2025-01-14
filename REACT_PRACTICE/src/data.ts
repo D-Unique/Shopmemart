@@ -68,7 +68,7 @@ const Data: data[] = [{
     width: '200px',
     description: 'From our Legends Collection',
     price: 695,
-    rating: 4,
+    rating: 2.5,
   }
   ]
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Product {
  id: number;
-  quantity: number;
+ quantity: number;
 }
 
 type Productcontex = {
