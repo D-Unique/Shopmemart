@@ -1,0 +1,27 @@
+.category-title {
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #231f1e;
+    justify-self: left;
+    margin: 10px 0 20px 30px;
+    width: 50%;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 95%;
+    gap: 0 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-head {
+    display: grid;
+    place-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 10px 20px;
+    border-radius: 8px;
+    padding-bottom: 30px;
+}

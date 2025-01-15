@@ -1,0 +1,54 @@
+#account {
+    color: white;
+}
+
+#account a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+
+#account a:hover {
+    border: 1px solid white;
+}
+
+.cart {
+    position: relative;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cart:hover {
+    color: #d3bb35;
+    border: 1px solid white;
+}
+
+.cart-icon {
+    font-size: 22px;
+    color: white;
+}
+
+.cart-icon:hover {
+    color: #e0c137;
+}
+
+.cart-button {
+    display: flex;
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: white;
+    bottom: 0;
+    right: 0;
+    transform: translate(35%, -85%);
+
+}
+.cart-button:hover {
+    border: none;
+}
