@@ -11,60 +11,82 @@ interface Product {
 }
 
 interface Props {
-  product: Product;
+  product: Product | null;
 }
 
 function Minicart({ product }: Props) {
   const productContext = useContext(ProductContext);
   if (product === null) {
-    return <h3>No Product in Cart</h3>
-  }
-  else {
+    return;
+  } else {
     const Quantity = productContext.getProductQuantity(product.id);
 
     return (
-      <div className="container" style={{ boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
-        <div className="row mt-3 p-1">
-          <div className='col-sm-5 bg-secondary'>
-            <div className="minicart-image">
-              <img src={product.image} alt={product.name} width={150} height={200} />
-            </div>
-          </div>
+      <div
+        style={{
+          height: '130px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          backgroundColor: 'white',
+          flexDirection: 'row',
+          marginBottom: '10px',
+        }}
+      >
+        <img
+          className="m-auto p-2"
+          src={product.image}
+          alt={product.name}
+          width={100}
+          height={80}
+        />
 
-          <div className="col-sm-7" style={{ backgroundColor: '#6393C1' }}>
-            <div className="minicart-details">
-              <h2>{product.name}</h2>
-              <p>${product.price}</p>
-              <span className="">
-                <button
-                  type="button"
-                  name="minus"
-                  className="minicart-button"
-                  onClick={() => productContext.removeOneProduct(product.id)}
-                >
-                  -
-                </button>
-                <span>{Quantity}</span>
-                <button
-                  type="button"
-                  name="plus"
-                  className="minicart-button"
-                  onClick={() => productContext.addOneProduct(product.id)}
-                >
-                  +
-                </button>
-                <button type="button" name="delete" className="minicart-trash" onClick={() => productContext.deleteProduct(product.id)}>
-                  <Trash />
-                </button>
-              </span>
+        <div
+          className="container-fluid d-flex mt-1 mb-1"
+          style={{ flexDirection: 'column', justifyContent: 'space-between' }}
+        >
+          <h5 style={{ textAlign: 'center' }}>{product.name}</h5>
+          <p>${product.price}</p>
+          <div
+            style={{
+              margin: 0,
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}
+          >
+            <div>
+              <button
+                type="button"
+                name="minus"
+                className="minicart-button"
+                onClick={() => productContext.removeOneProduct(product.id)}
+              >
+                -
+              </button>
+              <span>{Quantity}</span>
+              <button
+                type="button"
+                name="plus"
+                className="minicart-button"
+                onClick={() => productContext.addOneProduct(product.id)}
+              >
+                +
+              </button>
             </div>
+
+            <button
+              type="button"
+              name="delete"
+              className="minicart-trash"
+              onClick={() => productContext.deleteProduct(product.id)}
+            >
+              <Trash />
+            </button>
           </div>
         </div>
       </div>
-
-  );
+    );
   }
 }
-
 
 export default Minicart;

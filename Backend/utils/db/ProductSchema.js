@@ -28,6 +28,10 @@ const productSchema = mongoose.Schema({
     rating: {
         type: Number,
     },
+    category: {
+        type: String,
+        required: true
+    }
 })
 
 export default mongoose.model('Product', productSchema);

@@ -1,0 +1,23 @@
+.customleft-translate-middle-x {
+  display: block;
+  transform: translateX(-13%) scaleX(0.76);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.customright-translate-middle-x {
+  display: contents;
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateX(12%) scaleX(0.8);
+  overflow: auto;
+  height: 100vh;
+}
+
+.split-left {
+  transition: all 0.3s;
+}
+
+.split-right {
+  display: none;
+  transition: all 0.3s;
+}

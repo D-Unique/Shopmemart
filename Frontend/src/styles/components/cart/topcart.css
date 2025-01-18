@@ -123,21 +123,23 @@
 
 
 .minicart-button {
-    background-color: #ffffff;
+    background-color: #dfdcdc;
     text-align: center;
     border: none;
     max-width: 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .minicart-image {
     background-size: cover;
+    background-color: white;
+    margin:10px ;
     width: 20%;
     height: 40%;
 }
 .minicart-trash {
     border: none;
-    background-color: #6393C1;
+    background-color: #ffffff;
 }
 .product-single-item{
     width: 100%;

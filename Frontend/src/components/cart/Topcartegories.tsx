@@ -1,6 +1,8 @@
 import { fashion, books, furniture, beauty, gadgets, medicalSupplies, toys, sports } from '../../assets';
 import '../../styles/components/cart/topcart.css';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import ShopContext from '../../context/ShopContext';
 
 interface topcart {
   name: string;
@@ -42,6 +44,11 @@ function Topcartegories(): JSX.Element {
       image: toys,
     },
   ];
+  
+  const { setCartegorie } = useContext(ShopContext);
+  const handleCategoryClick = (category: string) => {
+    setCartegorie(category);
+  };
   return (
     <section>
       <div className='category-head'>
@@ -51,8 +58,9 @@ function Topcartegories(): JSX.Element {
         <div className='category-grid topcart'>
           {topCategories.map((category: topcart) => (
             <Link
-                to="/signin"
-                key={category.name}
+              to="/products"
+              key={category.name}
+              onClick={() => {handleCategoryClick(category.name)}}
                 style={{
                   position: 'relative',
                   height: '220px',

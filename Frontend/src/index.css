@@ -2,7 +2,7 @@
 body {
   width: 100%;
   margin: 0;
-  display: flex;
+  display: block;
   align-items: center; /* Align content at the top of the screen */
   justify-content: center; /* This will center the content horizontally */
   font-family: Arial, sans-serif;
@@ -13,5 +13,4 @@ body {
 .root {
   width: 100%;
   background-color: rgb(240, 240, 240);
-
 }

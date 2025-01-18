@@ -4,15 +4,10 @@ import CartContext from './CartContext.ts';
 
 const CartContextProvider = ({ children }: { children: ReactNode }) => {
     const [openCart, setOpenCart] = useState<boolean>(false);
-    function setOverflow() {
-        const body = document.querySelector('body') as HTMLElement;
-        body.style.pointerEvents = 'none';
-        const side = document.querySelector('.checkoutsidebar-open') as HTMLElement;
-        side.style.overflowY = 'scroll';
-        side.style.pointerEvents = 'auto';
-    }
+    
+    
     return (
-        <CartContext.Provider value={{ openCart, setOpenCart, setOverflow }}>
+        <CartContext.Provider value={{ openCart, setOpenCart}}>
             {children}
         </CartContext.Provider>
     );
