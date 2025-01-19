@@ -29,7 +29,7 @@ interface Props {
 //     }
 
 
-function Cart({ data }: Props) {
+function MacroCart({ data }: Props) {
   // when I connect to the db, I will use the _id to retrieve the product
   // const [productId, setProductId] = useState<string>('')
   // send db call to get product details
@@ -99,4 +99,4 @@ function Cart({ data }: Props) {
   )
 }
 
-export default Cart
+export default MacroCart

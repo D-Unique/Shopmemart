@@ -1,7 +1,7 @@
 import { fashion, books, furniture, beauty, gadgets, medicalSupplies, toys, sports } from '../../assets';
 import '../../styles/components/cart/topcart.css';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import ShopContext from '../../context/ShopContext';
 
 interface topcart {

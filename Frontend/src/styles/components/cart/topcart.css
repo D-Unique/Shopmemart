@@ -1,5 +1,3 @@
-
-
 .add-to-cart-button {
     padding: 5px;
     width: 100px;
@@ -204,7 +202,6 @@
 }
 
 .product-title {
-    z-index: 1;
     margin-top: 16px;
     margin-bottom: 12px;
     font-family: Inter, sans-serif;

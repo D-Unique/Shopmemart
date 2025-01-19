@@ -1,6 +1,6 @@
 import { useEffect, useState, MouseEvent } from 'react';
 import { Row } from 'react-bootstrap';
-import Cart from './Cart';
+import MacroCart from './Macrocart';
 import '../../styles/components/cart/topcart.css';
 import Data from '../../data';
 
@@ -75,7 +75,7 @@ const Todaybest = () => {
           padding: '0 40px',
         }}
       >
-       <Cart data={Data} />
+       <MacroCart data={Data} />
       </Row>
     </section>
     </>

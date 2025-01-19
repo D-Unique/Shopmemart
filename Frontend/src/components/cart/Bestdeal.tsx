@@ -1,5 +1,5 @@
 import '../../styles/components/cart/topcart.css';
-import Cart from './Cart';
+import MacroCart from './Macrocart';
 import Data from '../../data';
 
 
@@ -11,7 +11,7 @@ const Bestdeal = () => {
       <div className='best-deal-div'>
         <h3 className='category-title'>Todays Best Deals for you!</h3>
         <div className='bestdeal'>
-          <Cart data={Data} />
+          <MacroCart data={Data} />
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Checkout from '../components/Checkout';
+import Cart from '../components/Cart';
 import Header from '../components/Header';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
@@ -10,17 +10,18 @@ function TwoPane() {
     <div className="split-container">
       <Header />
       <main
-        className={
-          openCart ? 'split-left customleft-translate-middle-x' : 'split-left'
-        }
+       
       >
         <Outlet />
       </main>
-      <div
-        className={openCart ? 'customright-translate-middle-x' : 'split-right'}
-      >
-        <Checkout />
-      </div>
+     
+        {
+        openCart &&
+        <div>
+            <Cart />
+          </div>
+      }
+
     </div>
   );
 }
