@@ -1,7 +1,7 @@
 import "../styles/components/footer.css";
 import RotatingCircles from "../components/RotatingCircles";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer>
       <div className="footer-div">

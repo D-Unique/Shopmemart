@@ -5,8 +5,8 @@ type ShopContextType = {
     cartegorie: string;
     setCartegorie: (cartegorie: string) => void;
     getCartProducts: () => void;
-    setData: (data: any) => void;
-    data: any;
+    setData: (data: string) => void;
+    data: string;
 
 }
 const ShopContext = createContext({} as ShopContextType)

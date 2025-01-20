@@ -13,6 +13,7 @@ interface product {
   description?: string;
   price: number;
   rating?: number;
+  category: string;
 }
 
 
@@ -99,4 +100,4 @@ function MacroCart({ data }: Props) {
   )
 }
 
-export default MacroCart
+export default MacroCart;

@@ -15,8 +15,14 @@
   padding: 10px 15px;
   
 }
+
+#cart-content::-webkit-scrollbar{
+  width: 0;
+}
+
+
 .cart-wrapper {
-  position: absolute;
+  position: fixed;
   top: 70px;
   right: 0;
   width: 100%;
@@ -41,6 +47,8 @@
   background-color: black;
   width: 37%;
   padding: 5px;
+  display: flex;
+  justify-content: center
   
  
 }
@@ -49,5 +57,12 @@
   flex-direction: column;
    width: 100%;
    padding-bottom: 80px;
+
+}
+
+.cart-button {
+  border: none;
+  text-shadow: #0000;
+  font-weight: 500;
 
 }

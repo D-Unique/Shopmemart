@@ -24,10 +24,10 @@ function Account() {
       <Link to="/signup" className="p-2">
         Sign Up
       </Link>
-      <Button className="cart ms-5 rounded-circle" variant="Outline-primary" onClick={() => handleOpenCart()}>
+      <Button className="account-cart ms-5 rounded-circle" variant="Outline-primary" onClick={() => handleOpenCart()}>
         
-        <Cart className='cart-icon'/>
-        <div className="cart-button rounded-circle bg-warning d-flex justify-content-center align-items-center">{ totalProducts }</div>
+        <Cart className='account-cart-icon'/>
+        <div className="account-cart-button rounded-circle bg-warning d-flex justify-content-center align-items-center">{ totalProducts }</div>
       </Button>
     </div>
   );

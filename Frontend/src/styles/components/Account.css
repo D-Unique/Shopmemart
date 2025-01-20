@@ -13,7 +13,7 @@
     border: 1px solid white;
 }
 
-.cart {
+.account-cart {
     position: relative;
     color: white;
     font-weight: 500;
@@ -24,21 +24,21 @@
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.cart:hover {
+.account-cart:hover {
     color: #d3bb35;
     border: 1px solid white;
 }
 
-.cart-icon {
+.account-cart-icon {
     font-size: 22px;
     color: white;
 }
 
-.cart-icon:hover {
+.account-cart-icon:hover {
     color: #e0c137;
 }
 
-.cart-button {
+.account-cart-button {
     display: flex;
     position: absolute;
     width: 1.4rem;
@@ -49,6 +49,6 @@
     transform: translate(35%, -85%);
 
 }
-.cart-button:hover {
+.account-cart-button:hover {
     border: none;
 }

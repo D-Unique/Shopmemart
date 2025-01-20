@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 import Data from '../data';
 import ProductContext from '../context/ProductContext';
+import { Link } from 'react-router-dom';
 
 function Cart() {
   const { setOpenCart } = useContext(CartContext);
@@ -36,9 +37,11 @@ function Cart() {
 
         {products?.length < 1 ? null : (
                 <div className='cart-footer'>
-                  <button className="cart-button bg-warning p-2 rounded-pill ">
-                  Checkout
-                </button>
+                  <Link to={'/cart/checkout'}>
+                    <button className="cart-button bg-warning p-2  ">
+                      Proceed to checkout
+                    </button>
+                  </Link>
                 </div>
               )}
           </div>

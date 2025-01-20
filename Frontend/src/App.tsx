@@ -4,11 +4,15 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import TwoPane from './layout/2pane.tsx'
+import FullLayout from './layout/FullLayout.tsx';
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 import SignIn from './pages/SignInPage';
 import SignUp from './pages/SignUpPage';
-import Products from './pages/Products.tsx';
+import Products from './pages/ProductsPage.tsx';
+import CheckOutPage from './pages/CheckOutPage.tsx';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +29,17 @@ const router = createBrowserRouter([
     ],
 
   },
+  {
+    path: '/cart',
+    element: <FullLayout />, 
+    children: [
+      {
+        path: "checkout",
+        element: [<CheckOutPage/>]
+      }
+    ],
+  },
+  
   {
     path: "/signin",
     element: <SignIn />,

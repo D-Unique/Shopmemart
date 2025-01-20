@@ -1,4 +1,33 @@
-.products {
-    background-image: '../');
+.products-body{
+    display: flex;
+    flex-wrap: wrap; 
+    overflow-x: hidden;
+    justify-content: space-evenly;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    
+}
 
+.products-body::-webkit-scrollbar{
+    width: 0;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 32px;
+}
+
+.products-list  .product-single-item{
+    min-width: 400px;
+    margin: 20px
+}
+
+.product-single-item {
+    background-color: white;
+    border: 1px solid rgb(228, 228, 228);
 }

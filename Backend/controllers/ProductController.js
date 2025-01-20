@@ -6,7 +6,7 @@ class ProductsController {
             res.json({ message: 'All products' })
         }
         if (value) {
-            res.json({ message: `products by cartgorie ${value}` });
+            res.json({ message: `${value}` });
         }
 
     }

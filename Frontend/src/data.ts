@@ -6,7 +6,8 @@ interface data {
     width: string;
     description?: string;
     price: number;
-    rating?: number; 
+  rating?: number; 
+  category: string;
   }
 
 
@@ -18,7 +19,9 @@ const Data: data[] = [{
     width: '200px',
     description: 'Fits 13-13.3 Inch MacBook Air/Pro',
     price: 15.99,
-    rating: 4,
+  rating: 4,
+  category: 'Gadgets'
+    
   },
     {
       id: 2,
@@ -29,6 +32,7 @@ const Data: data[] = [{
       description: 'Slim fit, perfect for casual wear',
       price: 22.99,
       rating: 5,
+      category: 'Fashion'
     },
     {
       id: 3,
@@ -39,6 +43,7 @@ const Data: data[] = [{
       description: 'Great for winter and summer',
       price: 55.99,
       rating: 4,
+      category: 'Fashion'
     },
     {
       id:4,
@@ -49,6 +54,7 @@ const Data: data[] = [{
       description: '',
       price: 15.99,
       rating: 4,
+      category: 'Fashion'
     },
     {
       id:5,
@@ -59,6 +65,7 @@ const Data: data[] = [{
       description: 'From our Legends Collection',
       price: 695,
       rating: 4,
+      category: 'Fashion'
     },
   {
     id: 6,
@@ -69,7 +76,154 @@ const Data: data[] = [{
     description: 'From our Legends Collection',
     price: 695,
     rating: 2.5,
-  }
+    category: 'Fashion'
+  },
+  {
+    id: 7,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 3.5,
+    category: 'Fashion'
+  },
+
+  {
+    id: 8,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4.5,
+    category: 'Fashion'
+  },
+  {
+    id: 9,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 5,
+    category: 'Fashion'
+  },
+  {
+    id: 10,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Fashion'
+  },
+  {
+    id: 11,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Fashion'
+  },
+  {
+    id: 12,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Fashion'
+  },
+  {
+    id: 13,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px', 
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+
+  {
+    id: 14,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+  {
+    id: 15,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+  {
+    id: 16,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+  {
+    id: 17,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+  {
+    id: 18,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Gadgets'
+  },
+  {
+    id: 19,
+    name: 'John Hardy Women\'s Legends Gold',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    height: '200px',
+    width: '200px',
+    description: 'From our Legends Collection',
+    price: 695,
+    rating: 4,
+    category: 'Sports'
+  },
+
   ]
 
 export default Data
