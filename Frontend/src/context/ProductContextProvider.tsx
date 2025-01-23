@@ -56,15 +56,15 @@ function ProductContextProvider({ children }: ProductContextType) {
   }
 
   const deleteProduct = (id: number) => {
-    products.filter((product) => {
+    setproduct(products.filter((product) => {
       return product.id !== id;
-    });
+    }));
   };
 
   const removeOneProduct = (id: number) => {
     const productquantity = getProductQuantity(id);
-    if (productquantity === 0) {
-      setproduct([...products, { id: id, quantity: 1 }]);
+    if (productquantity === 1) {
+      deleteProduct(id);
     } else {
       setproduct(
         products.map((product) =>

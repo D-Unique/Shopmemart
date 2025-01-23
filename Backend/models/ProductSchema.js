@@ -23,7 +23,8 @@ const productSchema = mongoose.Schema({
     },
     outofStock: {
         type: Boolean,
-        required: true
+        default: false,
+        
     },
     rating: {
         type: Number,
@@ -33,5 +34,7 @@ const productSchema = mongoose.Schema({
         required: true
     }
 })
+mongoose.model('Product', productSchema);
+const Product = new mongoose.model('Product', productSchema);
 
-export default mongoose.model('Product', productSchema);
+export default Product;

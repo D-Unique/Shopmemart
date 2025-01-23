@@ -45,7 +45,7 @@ function Minicart({ product }: Props) {
           style={{ flexDirection: 'column', justifyContent: 'space-between' }}
         >
           <h5 style={{ textAlign: 'center' }}>{product.name}</h5>
-          <p>${product.price}</p>
+          <p>${product.price * Quantity}</p>
           <div
             style={{
               margin: 0,
@@ -68,7 +68,10 @@ function Minicart({ product }: Props) {
                 type="button"
                 name="plus"
                 className="minicart-button"
-                onClick={() => productContext.addOneProduct(product.id)}
+                onClick={() => {
+                  productContext.addOneProduct(product.id)
+                  console.log(productContext.products)
+                 }}
               >
                 +
               </button>
@@ -78,9 +81,11 @@ function Minicart({ product }: Props) {
               type="button"
               name="delete"
               className="minicart-trash"
-              onClick={() => productContext.deleteProduct(product.id)}
             >
-              <Trash />
+              <Trash onClick={() => {
+                productContext.deleteProduct(product.id)
+                console.log(product.id)
+              }} />
             </button>
           </div>
         </div>

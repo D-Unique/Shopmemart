@@ -11,6 +11,7 @@ import SignIn from './pages/SignInPage';
 import SignUp from './pages/SignUpPage';
 import Products from './pages/ProductsPage.tsx';
 import CheckOutPage from './pages/CheckOutPage.tsx';
+import AdminAddProduct from './pages/AdminAddProduct.tsx';
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUp />,
   },
+  {
+    path: "/admin",
+    element: <AdminAddProduct />,
+  }
 ]);
 
 
