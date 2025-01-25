@@ -1,6 +1,6 @@
 //styles
 import '../styles/components/Header.css';
-//conponent
+//component
 import Nav from './Nav';
 import "../styles/components/Nav.css";
 //bootstrap

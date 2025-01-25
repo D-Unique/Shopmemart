@@ -2,7 +2,11 @@ import express from 'express';
 import corsmiddleware from './middlewares/Cors.js';
 import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
+<<<<<<< HEAD
 import paymentRoutes from './routes/PaymentRoutes.js'
+=======
+import authRoutes from "./routes/authRoutes.js";
+>>>>>>> 8bfc1ca4ea2109ae8450471dba1e8333844cb38b
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -31,6 +35,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/product', productRoutes)
 app.use('/api/v1/payment', paymentRoutes)
+app.use("/api/v1/auth", authRoutes)
 
 
 

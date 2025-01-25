@@ -24,9 +24,9 @@ export default function SignIn() {
   const handleSignin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
     const url = 'http://localhost:3000/api/v1/user/signin';
 
-    // Access input values
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
     const remember = rememberRef.current?.checked;
@@ -38,27 +38,33 @@ export default function SignIn() {
     }
 
     const data = { email, password };
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    };
 
-    try
-    {
-      const response = await fetch(url, options);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
       const result = await response.json();
 
-      if (response.status === 400) {
+      if (response.status !== 200) {
         toast.error(result.message, { position: 'bottom-center' });
         setIsLoading(false);
         return;
       }
 
-      toast.success(result.message);
+      console.log(result);
 
+      // Success: Save token and optionally email/password
+      const { token } = result;
+
+      // Store the token in localStorage
+      localStorage.setItem('token', token);
+
+      // If "Remember me" is checked, store email/password
       if (remember) {
         localStorage.setItem('email', email);
         localStorage.setItem('password', password);
@@ -67,21 +73,14 @@ export default function SignIn() {
         localStorage.removeItem('password');
       }
 
-      // Clear inputs
-      if (emailRef.current) emailRef.current.value = '';
-      if (passwordRef.current) passwordRef.current.value = '';
-      if (rememberRef.current) rememberRef.current.checked = false;
+      toast.success(result.message, { position: 'bottom-center' });
 
+      // Redirect to home or dashboard page
       window.location.href = '/';
-    }
-    catch (error)
-    {
+    } catch (error) {
       toast.error('An error occurred. Please try again.', { position: 'bottom-center' });
-      console.error(error);
-    }
-    // Set loading to false after the request ends
-    finally
-    {
+      console.error('Sign-in error:', error);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -114,10 +113,12 @@ export default function SignIn() {
               required
             />
           </div>
-          <input type="checkbox" id="remember" ref={rememberRef} />
-          <label className="remember-me ps-2" htmlFor="remember">
-            Remember me
-          </label>
+          <div className="form-group mb-2">
+            <input type="checkbox" id="remember" ref={rememberRef} />
+            <label className="remember-me ps-2" htmlFor="remember">
+              Remember me
+            </label>
+          </div>
           <button
             type="submit"
             className="btn btn-primary w-100 mt-2 mb-2"
