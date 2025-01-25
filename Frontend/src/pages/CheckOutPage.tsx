@@ -1,9 +1,41 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import ProductContext from "../context/ProductContext"
 import '../styles/pages/CheckOutPage.css'
-function CheckOutPage() {
-    const { products } = useContext(ProductContext)
+import { DbProducts, Product } from "../Enums"
 
+
+
+function CheckOutPage() {
+  const { products } = useContext(ProductContext)
+
+  
+//   const [dbproducts, setdbproducts] = useState<DbProducts[]>([]);
+  const [ids, setids] = useState();
+  
+  const getProduct = async (products: Product[]) => {
+    const Ids = products.map((product) => (product.id ));
+    const response = await fetch('http://localhost:3000/api/v1/product/getProductsbyId', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: Ids }),
+    })
+      const data = await response.json()
+     
+
+    return data;
+
+    }
+  useEffect(() => {
+    async function getProducts() {
+     const fatchedp = await getProduct(products);
+      setids(fatchedp);
+    }
+    getProducts();
+  }, );
+
+console.log(ids)
   return (
       <div className="checkoutpage">
           <h1>Checkout Page</h1>
@@ -48,8 +80,10 @@ function CheckOutPage() {
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody>
+            <tbody>
+              {/* {getProduct(products)} */}
                                 {products.map((product) => (
+                                  
                                     <tr key={product.id}>
                                         <td>Product</td>
                                         <td>{`${product.quantity} x ${20}`}</td>

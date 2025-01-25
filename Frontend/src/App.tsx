@@ -12,6 +12,7 @@ import SignUp from './pages/SignUpPage';
 import Products from './pages/ProductsPage.tsx';
 import CheckOutPage from './pages/CheckOutPage.tsx';
 import AdminAddProduct from './pages/AdminAddProduct.tsx';
+import PaymentVarify from './pages/PaymentVarify.tsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
         path: "checkout",
         element: [<CheckOutPage/>]
       }
+
     ],
   },
   
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminAddProduct />,
+  },
+  {
+    path: "/verify",
+    element: <PaymentVarify />,
   }
 ]);
 

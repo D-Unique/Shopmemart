@@ -3,66 +3,21 @@ import StarRating from './StarRating';
 import { HeartFill } from 'react-bootstrap-icons';
 import { useContext } from 'react';
 import ProductContext from '../../context/ProductContext';
-
-interface product {
-  id: number;
-  name: string;
-  image: string;
-  height: string;
-  width: string;
-  description?: string;
-  price: number;
-  rating?: number;
-  category: string;
-}
+import { DbProducts } from '../../Enums';
 
 
 
-interface Props {
-  data: product[]
-}
-
-// interface Product {
-//       id: number;
-//       name: string;
-//       price: number;
-//       image: string;
-//     }
-
-
-function MacroCart({ data }: Props) {
-  // when I connect to the db, I will use the _id to retrieve the product
-  // const [productId, setProductId] = useState<string>('')
-  // send db call to get product details
-  // const product = {
-  //   name: productName,
-  //   price: productPrice,
-  //   image: productImage
-  // }
-  // const [productImage, setProductImage] = useState<string>('')
-
+function MacroCart({ data }: { data: DbProducts[] }) {
 
   const product = useContext(ProductContext)
 
-  // const handleAddToCart = (categorie: product, index: number) => {
-
-  //   const Product: Product = {
-  //     id: index,
-  //     name: categorie.name,
-  //     price: categorie.price,
-  //     image: categorie.image,
-  //   }
-  //   product.addOneproduct(Product)
-  //   const total = product.getTotalProducts()
-  //   alert(`${total} added to cart`)
-  // }
   return (
     <>
-      {data.map((cartgories: product) => (
-        <Col xs={2} className="product-single-item m-0 mb-3" key={cartgories.id}>
+      {data.map((item: DbProducts) => (
+        <Col xs={2} className="product-single-item m-0 mb-3" key={item._id}>
           <div className='product-tab-thumbnail-wrap'>
 
-            <img className='cart-image' src={cartgories.image} alt={cartgories.name} height={cartgories.height} width={cartgories.width} loading='lazy' />
+            <img className='cart-image' src={item.image} alt={item.name} height='200px' width='200px' loading='lazy' />
             <div className='product-wishlist'>
               <HeartFill />
             </div>
@@ -77,21 +32,21 @@ function MacroCart({ data }: Props) {
 
             <div className='product-title-wrap'>
               <div className='product-title'>
-                {cartgories.name}
+                {item.name}
               </div>
               <div className='product-price'>
                 <span className='text-span'>$</span>
-                {cartgories.price}
+                {item.price}
               </div>
             </div>
             <div className='product-color'>
               {
-                cartgories.description ? cartgories.description : 'No description.'
+                item.description ? item.description : 'No description.'
               }
             </div>
             <div className='product-title-wrap'>
-              <StarRating rating={ cartgories.rating || 0} color="gold" />
-              <div><button className='add-to-cart-button' onClick={() => product.addOneProduct(cartgories.id)}>Add to cart</button></div>
+              <StarRating rating={ item.rating || 0} color="gold" />
+              <div><button className='add-to-cart-button' onClick={() => product.addOneProduct(item._id)}>Add to cart</button></div>
             </div>
           </div>
         </Col>

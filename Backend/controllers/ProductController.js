@@ -1,14 +1,45 @@
 import  Product  from '../models/ProductSchema.js';
 class ProductsController {
-    static async getProduct(req, res) {
-        const value  = req.query.category
-        console.log(value)
-        if (!value) {
-            res.json({ message: 'All products' })
+
+    static async getRandomProducts(req, res) {
+        try {
+          const productList = await Product.aggregate([{ $sample: { size: 10 } }]); 
+      
+          if (!productList || productList.length === 0) { 
+            return res.status(404).json({ message: 'No products found' });
+          }
+      
+          return res.status(200).json(productList); 
+      
+        } catch (error) {
+          console.error('Error fetching random products:', error);
+          return res.status(500).json({ message: 'Internal server error' });
         }
-        if (value) {
-            res.json({ message: `${value}` });
+      }
+
+    static async getProductbyCategory(req, res) {
+        if (req.method == 'GET') {
+            const value = req.query.category;
+
+            const productList = await Product.find({ category: value });
+            if (!productList) {
+                return res.status(404).json({ message: 'No products found' });
+            }
+            return res.status(200).json({ productList });
         }
+        
+
+    }
+
+    static async getProductsbyId(req, res) {
+        const value = req.body.id
+
+        const product = new Product()
+        const productList = await product.find({ _id: { $in: value } });
+        if (!productList) {
+           return res.status(404).json({ message: 'No products found' });
+        }
+        return res.status(200).json({ message: productList });
 
     }
 

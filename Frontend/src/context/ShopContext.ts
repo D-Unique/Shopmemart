@@ -1,14 +1,7 @@
 import { createContext } from 'react'
+import { ShopContextType } from '../Enums'
 
 
-type ShopContextType = {
-    cartegorie: string;
-    setCartegorie: (cartegorie: string) => void;
-    getCartProducts: () => void;
-    setData: (data: string) => void;
-    data: string;
-
-}
 const ShopContext = createContext({} as ShopContextType)
 
 
