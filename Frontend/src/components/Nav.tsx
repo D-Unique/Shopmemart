@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import "../styles/components/Nav.css";
@@ -9,7 +9,7 @@ export default function Nav() {
     <>
       <Row className="mt-1">
         <Col xs="5" className="d-flex justify-content-left align-items-center no-padding">
-          <h1 id="logo">ShopMeMart</h1>
+         <Link to={'/'} className="logo"> <h1 id="logo">ShopMeMart</h1></Link>
         </Col>
         <Col xs="6" className="d-flex justify-content-center align-items-center no-padding">
           {pMenus.map((menu, index) => {

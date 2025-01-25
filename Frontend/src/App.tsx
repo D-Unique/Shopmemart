@@ -36,8 +36,11 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <CheckOutPage />
+      },
+      {
+        path: "verify",
+        element: <PaymentVarify />,
       }
-
     ],
   },
   {
@@ -52,10 +55,7 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <AdminAddProduct />,
   },
-  {
-    path: "/verify",
-    element: <PaymentVarify />,
-  }
+  
 ]);
 
 function App() {

@@ -10,8 +10,8 @@ class Transaction {
         }
         const data = JSON.stringify({
             "email": email, 
-            "amount": amount,
-            callback_url: 'https://1b74-197-210-84-138.ngrok-free.app/verify',
+            "amount": amount * 100,
+            callback_url: 'https://1b74-197-210-84-138.ngrok-free.app/cart/verify',
             });
              
         const options = {

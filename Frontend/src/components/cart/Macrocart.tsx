@@ -13,7 +13,9 @@ function MacroCart({ data }: { data: DbProducts[] }) {
 
   return (
     <>
-      {data.map((item: DbProducts) => (
+      { (!data) ? <div> No products found </div>:
+      
+        data.map((item: DbProducts) => (
         <Col xs={2} className="product-single-item m-0 mb-3" key={item._id}>
           <div className='product-tab-thumbnail-wrap'>
 
