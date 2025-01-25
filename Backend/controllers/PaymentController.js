@@ -8,10 +8,10 @@ class Transaction {
         if (!amount || !email) {
             return res.status(400).json({ message: 'Amount and email are required' });
         }
-        const data = json.stringify({
-                email,
-            amount,
-            callback_url: 'https://84b7-197-210-226-186.ngrok-free.app/verify',
+        const data = JSON.stringify({
+            "email": email, 
+            "amount": amount,
+            callback_url: 'https://1b74-197-210-84-138.ngrok-free.app/verify',
             });
              
         const options = {

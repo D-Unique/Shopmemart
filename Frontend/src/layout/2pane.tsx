@@ -13,7 +13,7 @@ function TwoPane() {
   useEffect(() => {
     
     getCartProductsFromLocalstorage();
-  }, );
+  }, []);
   return (
     <div className="split-container">
       <Header />

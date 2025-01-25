@@ -7,12 +7,17 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Account() {
-  const { setOpenCart } = useContext(CartContext);
+  const { setOpenCart,  openCart} = useContext(CartContext);
   const { getTotalProducts } = useContext(ProductContext);
   const totalProducts = getTotalProducts();
 
   const handleOpenCart = () => {
-    setOpenCart(true);
+    // check if cart is open
+    if (openCart) {
+      setOpenCart(false)
+    } else {
+      setOpenCart(true);
+    }
   };
 
   const [user, setUser] = useState<any>(null); // State for authenticated user

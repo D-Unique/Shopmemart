@@ -5,14 +5,17 @@ import { DbProducts, Product } from "../Enums"
 
 
 
+
 function CheckOutPage() {
-  const { products } = useContext(ProductContext)
+  // get cart products from context
+  const { products } = useContext(ProductContext);
+
+  // save db products in the state sbproducts
+  const [dbproducts, setdbproducts] = useState<DbProducts[]>([]);
 
   
-//   const [dbproducts, setdbproducts] = useState<DbProducts[]>([]);
-  const [ids, setids] = useState();
-  
   const getProduct = async (products: Product[]) => {
+    // get all the ids of the cart products and send them to the backend to get the products from the database
     const Ids = products.map((product) => (product.id ));
     const response = await fetch('http://localhost:3000/api/v1/product/getProductsbyId', {
       method: 'POST',
@@ -21,21 +24,59 @@ function CheckOutPage() {
       },
       body: JSON.stringify({ id: Ids }),
     })
-      const data = await response.json()
-     
+    const data = await response.json()
 
-    return data;
-
-    }
+    // set the dbproducts state with the data from the backend
+    setdbproducts(data.productList);
+  }
+  
+  // get the products from the database on the first render
   useEffect(() => {
-    async function getProducts() {
-     const fatchedp = await getProduct(products);
-      setids(fatchedp);
-    }
-    getProducts();
-  }, );
+     getProduct(products);
+  },);
+  
+  // calculate the subtotal of the products in the cart
+  const calculateSubtotal = (dbProducts: DbProducts[], products: Product[]): number => {
+    const subtotal = dbProducts.reduce((acc, dbProduct) => {
+      const matchingProduct = products.find(product => product.id === dbProduct._id);
+      if (matchingProduct) {
+        return acc + (dbProduct.price * matchingProduct.quantity);
+      } else {
+        // Handle cases where a dbProduct doesn't have a corresponding product
+        console.warn(`Skipping dbProduct with ID: ${dbProduct._id} due to missing product in 'products' array.`);
+        return acc;
+      }
+    }, 0);
+  
+    return subtotal;
+  };
 
-console.log(ids)
+  // get the subtotal, shipping and total
+  const subtotal = calculateSubtotal(dbproducts, products);
+  const shipping = 20;
+  const total = shipping + subtotal;
+
+
+  // handle the submit button
+  const handleSubmit = async (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+    // prevent the default behavior of the form
+    e.preventDefault();
+    // send Total and email to the backend
+    const response = await fetch('http://localhost:3000/api/v1/payment/initailized', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "email": "emmunigw@gmail.com", 
+        "amount": total
+      }), 
+    })
+    const data = await response.json()
+    console.log(data);
+    }
+
+
   return (
       <div className="checkoutpage">
           <h1>Checkout Page</h1>
@@ -81,25 +122,28 @@ console.log(ids)
                                 </tr>
                             </thead>
             <tbody>
-              {/* {getProduct(products)} */}
-                                {products.map((product) => (
+                                {dbproducts.map((dbproduct) => (
                                   
-                                    <tr key={product.id}>
-                                        <td>Product</td>
-                                        <td>{`${product.quantity} x ${20}`}</td>
+                                    <tr key={dbproduct._id}>
+                                    <td>{dbproduct.name}</td>
+                                    {
+                                      products.map((product) => (
+                                      product.id === dbproduct._id && <td>{`${product.quantity} x ${dbproduct.price}`}</td>
+                                    ))
+                                    }
                                     </tr>
                                 ))}
                                 <tr>
                                     <td>Subtotal</td>
-                              <td>200</td>
-                          </tr>
+                                      <td>{ subtotal}</td>
+                                </tr>
                             <tr>
                                 <td>Shipping</td>
-                              <td>20</td>
+                <td>{ shipping}</td>
                           </tr>
                             <tr>
                                 <td>Total</td>
-                              <td>220</td>  
+                <td>{total}</td>  
                             </tr>
                             </tbody>
                     
@@ -109,7 +153,7 @@ console.log(ids)
                             <input type="text" placeholder="Card Number" />
                             <input type="text" placeholder="MM/YY" />
                       <input type="text" placeholder="CVC" />
-                      <input type="submit" value="Submit" /> 
+                      <input type="submit" value="Submit"  onClick={(e) => handleSubmit(e)}/> 
                       
                         </form>
                     </div>

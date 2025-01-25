@@ -33,13 +33,11 @@ class ProductsController {
 
     static async getProductsbyId(req, res) {
         const value = req.body.id
-
-        const product = new Product()
-        const productList = await product.find({ _id: { $in: value } });
+        const productList = await Product.find({ _id: { $in: value } });
         if (!productList) {
            return res.status(404).json({ message: 'No products found' });
         }
-        return res.status(200).json({ message: productList });
+        return res.status(200).json({ productList });
 
     }
 
