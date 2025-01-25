@@ -2,6 +2,7 @@ import express from 'express';
 import corsmiddleware from './middlewares/Cors.js';
 import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
+import authRoutes from "./routes/authRoutes.js";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/product', productRoutes)
+app.use("/api/v1/auth", authRoutes)
 
 
 
