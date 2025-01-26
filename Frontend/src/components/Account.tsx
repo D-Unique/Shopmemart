@@ -7,12 +7,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { validateToken } from "../util/checkToken"; // Import the utility
 import { User } from "../Enums"; // Import the interface
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
+import BackendLogout from "../util/BackendLogout";
 
 const Account: React.FC = () => {
   const { setOpenCart, openCart } = useContext(CartContext);
@@ -43,9 +38,8 @@ const Account: React.FC = () => {
   }, [token]);
 
   // Handle logout
-  const handleLogout = () => {
-    console.log("Logging out...");
-    localStorage.removeItem("token");
+  const handleLogout =  async() => {
+    await BackendLogout();
     setUser(null);
   };
 

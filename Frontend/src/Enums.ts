@@ -58,9 +58,17 @@ export type UserProviderProps = {
   children: ReactNode;
 };
 
+export type UserContextType = {
+  getUser: () =>  Promise< User  | JSX.Element |  null | undefined>;
+  UserName: string;
+  UserEmail: string;
+  Role: string;
+  
+}
 
 export interface User {
   id: string;
-  name: string;
+  fullName: string;
   email: string;
+  role: string;
 }

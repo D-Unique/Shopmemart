@@ -28,7 +28,7 @@ export default function Nav() {
                 id="pmenus"
                 className="text-light m-2"
                 key={index}
-                to={menu}
+                to="/whatisnew"
               >
                 {menu}
               </NavLink>

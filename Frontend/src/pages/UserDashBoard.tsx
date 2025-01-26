@@ -1,12 +1,17 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import UserContext from '../context/UserContext';
-// import reactoastify from 'react-toastify';
-// import { User } from '../Enums'; 
+
 
 function UserDashBoard() {
-  const { getUser, UserName, UserEmail } = useContext(UserContext);
-  const user = getUser();
-  
+  const { getUser} = useContext(UserContext);
+  useEffect(() => {
+    const verifyUser = async () => {
+       await getUser();
+    }
+    verifyUser();
+    
+  }, [])
+
 
   return (
     <div>

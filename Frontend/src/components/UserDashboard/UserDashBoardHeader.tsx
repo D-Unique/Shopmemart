@@ -1,21 +1,21 @@
-import {Link} from 'react-router-dom';
-import { s } from 'framer-motion/client';
-
+import UserContext from '../../context/UserContext';
+import { useContext } from 'react';
 const UserDashBoardHeader = () => {
+  const { UserName } = useContext(UserContext);
+
+
   return (
       <>
-          <div style={{ }}>
-                  <span>
+          <div>
+              <span>
               
-                  <h1 style={{ fontSize: 'large' }}>Emmanuel</h1>
-                  <p>User</p>
+          <h1 style={{ fontSize: 'large' }}>{ UserName }</h1>
+                  <p>Role:  User</p>
                 </span>
           </div>
           
           <div>
           <img style={{display: 'block'}} src="https://via.placeholder.com/150" alt="profile" />
-        
-            <Link to={'/'}>Logout</Link>
         </div >
     </>
   )

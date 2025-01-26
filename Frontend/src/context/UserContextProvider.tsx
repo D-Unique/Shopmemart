@@ -6,7 +6,7 @@ import Unauthorised from '../components/ErrorConponent/Unauthorised';
 
 
 function UserContextProvider({ children } : UserProviderProps) {
-    const [user, setUser] = useState<User>({} as User);
+    const [dbuser, setUser] = useState<User>({} as User);
 
     const getUser = async () => {
         const token = localStorage.getItem("token");
@@ -14,11 +14,11 @@ function UserContextProvider({ children } : UserProviderProps) {
             window.location.href = "/signin";
         }
         try {
-            const User = await validateToken(token);
-            if (user) {
-
+            const result = await validateToken(token);
+            if (result && result.user) {
+                const { user } = result;
                 setUser(user);
-                return User;
+                return user;
             }
             window.location.href = "/signin";
         } catch (error) {
@@ -28,11 +28,12 @@ function UserContextProvider({ children } : UserProviderProps) {
             
         }
     }
-    const  UserName = user.name
-    const UserEmail = user.email
+    const  UserName = dbuser.fullName
+    const UserEmail = dbuser.email
+    const Role = dbuser.role
 
   return (
-    <UserContext.Provider value={{ getUser, UserName, UserEmail}}>
+    <UserContext.Provider value={{ getUser, UserName, UserEmail, Role }}>
       {children}    
       
     </UserContext.Provider>

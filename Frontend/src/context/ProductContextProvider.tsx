@@ -8,7 +8,7 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
   
 
   function getCartProductsFromLocalstorage() {
-    const storedProducts = localStorage.getItem('cartproducts');
+    const storedProducts = sessionStorage.getItem('cartproducts');
     const ldata = storedProducts ? JSON.parse(storedProducts) : null;
     if (ldata) {
       setproduct(ldata)
@@ -28,8 +28,8 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
     const productquantity = getProductQuantity(id);
     if (productquantity === 0) {
       setproduct([...products, { id: id, quantity: 1 }]);
-      localStorage.removeItem('cartproducts');
-      localStorage.setItem('cartproducts', JSON.stringify([...products, { id: id, quantity: 1 }]));
+      sessionStorage.removeItem('cartproducts');
+      sessionStorage.setItem('cartproducts', JSON.stringify([...products, { id: id, quantity: 1 }]));
     } else {
       setproduct(
         products.map((product) =>
@@ -38,8 +38,8 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
             : { ...product }
         )
       );
-       localStorage.removeItem('cartproducts');
-       localStorage.setItem('cartproducts', JSON.stringify(products.map((product) =>
+      sessionStorage.removeItem('cartproducts');
+      sessionStorage.setItem('cartproducts', JSON.stringify(products.map((product) =>
         product.id === id
           ? { ...product, quantity: product.quantity + 1 }
           : { ...product }
@@ -51,8 +51,8 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
     setproduct(products.filter((product) => {
       return product.id !== id;
     }));
-    localStorage.removeItem('cartproducts');
-    localStorage.setItem('cartproducts', JSON.stringify(products.filter((product) => {
+    sessionStorage.removeItem('cartproducts');
+    sessionStorage.setItem('cartproducts', JSON.stringify(products.filter((product) => {
       return product.id !== id;
     }))
     );
@@ -70,8 +70,8 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
             : { ...product }
         )
       );
-      localStorage.removeItem('cartproducts');
-      localStorage.setItem('cartproducts', JSON.stringify(products.map((product) =>
+      sessionStorage.removeItem('cartproducts');
+      sessionStorage.setItem('cartproducts', JSON.stringify(products.map((product) =>
         product.id === id
           ? { ...product, quantity: product.quantity - 1 }
           : { ...product }

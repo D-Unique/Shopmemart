@@ -1,10 +1,12 @@
 import '../styles/pages/UserProfile.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import UserContext from '../context/UserContext';
 
 function UserProfile() {
   const { getUser, UserName, UserEmail } = useContext(UserContext);
-    const user = getUser();
+  useEffect(() => {
+    getUser();
+  } , [])
   return (
     <div >
       <h2 className='mb-5'>User Profile</h2>
@@ -20,7 +22,7 @@ function UserProfile() {
           </div>
           <div className="UserProfile-Content-Item">
             <label>Email:</label>
-            <p>{ UserEmail}</p>
+            <p>{ UserEmail }</p>
           </div>
     </div>
       

@@ -17,6 +17,8 @@ import PaymentVarify from './pages/PaymentVarify.tsx';
 import UserProfile from './pages/UserProfile.tsx';
 import UserDashBoard from './pages/UserDashBoard.tsx';
 import UserOrders from './pages/UserOrders.tsx';
+import WhatIsNew from './pages/WhatIsNew.tsx';
+import NotFound from './components/ErrorConponent/NotFound.tsx'
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminAddProduct />,
+  },
+  {
+    path: "/whatisnew",
+    element: <WhatIsNew />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
   
 ]);

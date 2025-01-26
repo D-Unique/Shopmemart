@@ -1,10 +1,6 @@
 // function to validate token
+import { User } from "../Enums";
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
 
 export const validateToken = async (
   token: string | null
