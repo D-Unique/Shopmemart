@@ -91,7 +91,7 @@ function Account() {
           <Link to="/signin" className="p-2">
             Account
           </Link>
-          <Link to="/signup" onClick={handleLogout} className="p-2">
+          <Link to="/" onClick={handleLogout} className="p-2">
             Sign Out
           </Link>
         </>
