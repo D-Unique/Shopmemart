@@ -6,6 +6,7 @@ import "../styles/components/Account.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { validateToken } from "../util/checkToken"; // Import the utility
+import { User } from "../Enums"; // Import the interface
 
 interface User {
   id: string;
