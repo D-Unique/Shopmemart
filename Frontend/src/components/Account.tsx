@@ -11,7 +11,6 @@ interface User {
   id: string;
   name: string;
   email: string;
-  [key: string]: any;
 }
 
 const Account: React.FC = () => {
@@ -19,8 +18,8 @@ const Account: React.FC = () => {
   const { getTotalProducts } = useContext(ProductContext);
   const totalProducts = getTotalProducts();
 
-  const [user, setUser] = useState<User | null>(null); // State for authenticated user
-  const [loading, setLoading] = useState<boolean>(true); // State for loading
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Fetch the token from local storage
   const token = localStorage.getItem("token");
@@ -29,11 +28,11 @@ const Account: React.FC = () => {
     console.log("Retrieved token from localStorage:", token);
 
     const fetchUser = async () => {
-      const result = await validateToken(token); // Use the utility
+      const result = await validateToken(token);
       if (result) {
-        setUser(result.user); // No error here because the type matches
+        setUser(result.user);
       } else {
-        localStorage.removeItem("token"); // Remove invalid token
+        localStorage.removeItem("token");
         setUser(null);
       }
       setLoading(false);
