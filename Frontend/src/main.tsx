@@ -10,6 +10,7 @@ import ProductContextProvider from './context/ProductContextProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+  
     <ShopProvider>
       <ProductContextProvider>
         <CartContextProvider>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
           <App />
         </CartContextProvider>
       </ProductContextProvider>
-    </ShopProvider>
+      </ShopProvider>
+    
   </StrictMode>
 );

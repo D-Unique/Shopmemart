@@ -2,16 +2,11 @@ import '../../styles/components/cart/topcart.css';
 import { Trash } from 'react-bootstrap-icons';
 import { useContext } from 'react';
 import ProductContext from '../../context/ProductContext';
+import { DbProducts } from '../../Enums';
 
-interface Product {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-}
 
 interface Props {
-  product: Product | null;
+  product: DbProducts | null;
 }
 
 function Minicart({ product }: Props) {
@@ -19,7 +14,7 @@ function Minicart({ product }: Props) {
   if (product === null) {
     return;
   } else {
-    const Quantity = productContext.getProductQuantity(product.id);
+    const Quantity = productContext.getProductQuantity(product._id);
 
     return (
       <div
@@ -59,7 +54,7 @@ function Minicart({ product }: Props) {
                 type="button"
                 name="minus"
                 className="minicart-button"
-                onClick={() => productContext.removeOneProduct(product.id)}
+                onClick={() => productContext.removeOneProduct(product._id)}
               >
                 -
               </button>
@@ -69,7 +64,7 @@ function Minicart({ product }: Props) {
                 name="plus"
                 className="minicart-button"
                 onClick={() => {
-                  productContext.addOneProduct(product.id)
+                  productContext.addOneProduct(product._id)
                   console.log(productContext.products)
                  }}
               >
@@ -83,8 +78,8 @@ function Minicart({ product }: Props) {
               className="minicart-trash"
             >
               <Trash onClick={() => {
-                productContext.deleteProduct(product.id)
-                console.log(product.id)
+                productContext.deleteProduct(product._id)
+                console.log(product._id)
               }} />
             </button>
           </div>

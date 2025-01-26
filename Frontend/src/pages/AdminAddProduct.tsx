@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "../styles/pages/AdminAddProduct.css";
 import readFileAsDataURL from "../util/readFileAsDataURL";
+import {src} from "../Enums";
 
 
 
 function AdminAddProduct() {
   const [dataurl, setDataurl] = useState<string | ArrayBuffer | null>();
   
-    // callback function to get the data URL
-    function getdataurl(dataURL: string|ArrayBuffer|null) {
-        setDataurl(dataURL);
-    }  
+  // callback function to get the data URL
+  function getdataurl(dataURL: string | ArrayBuffer | null) {
+    setDataurl(dataURL);
+  }
   
   const [formData, setFormData] = useState({
     pname: "",
@@ -22,7 +23,7 @@ function AdminAddProduct() {
     prating: "",
   });
 
-  const handleChange = async (e:  React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     // For file input, set the file object
@@ -40,33 +41,34 @@ function AdminAddProduct() {
   };
     
 
-  const handlesubmit =  async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault(); // Prevent the form from refreshing the page
-      const url = 'http://localhost:3000/api/v1/product/create';
-      const newformData = new FormData();
-      newformData.append("pname", formData.pname);
-      newformData.append("pdesc", formData.pdesc);
-      newformData.append("pprice", formData.pprice);
-      newformData.append("pcategory", formData.pcategory);
-      newformData.append("pimage", dataurl as string);
-      newformData.append("pcountInStock", formData.pcountInStock);
-      newformData.append("prating", formData.prating);
-      console.log(newformData.get("pname"));
-      try {
+  const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent the form from refreshing the page
+    const url = 'http://localhost:3000/api/v1/product/create';
+    const newformData = new FormData();
+    newformData.append("pname", formData.pname);
+    newformData.append("pdesc", formData.pdesc);
+    newformData.append("pprice", formData.pprice);
+    newformData.append("pcategory", formData.pcategory);
+    newformData.append("pimage", dataurl as string);
+    newformData.append("pcountInStock", formData.pcountInStock);
+    newformData.append("prating", formData.prating);
+    console.log(newformData.get("pname"));
+    try {
       const response = await fetch(url, {
-            method: "POST",
-            body: newformData,
+        method: "POST",
+        body: newformData,
       })
       const data = await response.json();
-          console.log(data.message);
-      } catch (error) {
-            console.error(error);
-        }
+      console.log(data.message);
+    } catch (error) {
+      console.error(error);
+    }
     
-      readFileAsDataURL(formData.pimage, getdataurl);
+    readFileAsDataURL(formData.pimage, getdataurl);
   };
 
   return (
+    <>
     <form onSubmit={handlesubmit} className="admin-add-product">
       <input
         type="text"
@@ -120,7 +122,9 @@ function AdminAddProduct() {
         onChange={handleChange}
       />
       <input type="submit" value="Add Product" />
-    </form>
+      </form>
+      </>
+    
   );
 }
 

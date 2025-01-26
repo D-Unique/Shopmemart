@@ -2,16 +2,15 @@ import '../styles/pages/Products.css';
 import bg from '../assets/img/shomemart-bg-cloth.jpg';
 import { useEffect, useContext } from 'react';
 import ShopContext from '../context/ShopContext';
-import Data from '../data';
+// import Data from '../data';
 import MacroCart from '../components/cart/Macrocart';
 
 function Products() {
-  const { getCartProducts, data } = useContext(ShopContext);
+  const { getCartProductsbyCategory, productbyCategory, cartegorie} = useContext(ShopContext);
   useEffect(() => {
-    getCartProducts();
-  }, );
+    getCartProductsbyCategory();
+  }, []);
 
-  const foundcart = Data.filter((product) => product.category === data);
 
   return (
     <div
@@ -23,12 +22,12 @@ function Products() {
         height: '100vh',
       }}
     >{}
-      <h1>{data}</h1>
+      <h1>{cartegorie}</h1>
       
       { 
-        foundcart.length > 0 ? (
+        productbyCategory.length > 0 ? (
           <section className="products-list">
-            <MacroCart data={foundcart} />
+            <MacroCart data={productbyCategory} />
           </section>
         )
       : (

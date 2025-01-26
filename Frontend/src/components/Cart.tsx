@@ -3,16 +3,21 @@ import Minicart from './cart/Minicart';
 import { X } from 'react-bootstrap-icons';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
-import Data from '../data';
+// import Data from '../data';
 import ProductContext from '../context/ProductContext';
+import ShopContext from '../context/ShopContext';
 import { Link } from 'react-router-dom';
 
+
 function Cart() {
+
+  const { allProducts } = useContext(ShopContext);
   const { setOpenCart } = useContext(CartContext);
   const { products } = useContext(ProductContext);
   const handleClose = () => {
     setOpenCart(false);
   };
+  console.log(products);
   return (
     <section className='cart-wrapper'>
     <div id="cart-content">
@@ -27,11 +32,12 @@ function Cart() {
           <div className="cart-product">
             {products?.length === 0 ? (
               <h3 className="text-white m-5">No Product in Cart</h3>
-            ) : null}
+              ) : null}
+            
             {products?.map((product) => {
-              const foundProduct = Data.find((data) => data.id === product.id);
+              const foundProduct = allProducts.find((data) => data._id === product.id);
               return foundProduct ? (
-                <Minicart key={foundProduct.id} product={foundProduct} />
+                <Minicart key={foundProduct._id} product={foundProduct} />
               ) : null;
             })}
 

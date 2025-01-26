@@ -6,12 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import TwoPane from './layout/2pane.tsx';
 import FullLayout from './layout/FullLayout.tsx';
+import UserDashBoardLayout from './layout/UserDashBoardLayout.tsx';
 import { createBrowserRouter } from 'react-router-dom';
 import SignIn from './pages/SignInPage';
 import SignUp from './pages/SignUpPage';
 import Products from './pages/ProductsPage.tsx';
 import CheckOutPage from './pages/CheckOutPage.tsx';
 import AdminAddProduct from './pages/AdminAddProduct.tsx';
+import PaymentVarify from './pages/PaymentVarify.tsx';
+import UserProfile from './pages/UserProfile.tsx';
+import UserDashBoard from './pages/UserDashBoard.tsx';
+import UserOrders from './pages/UserOrders.tsx';
 
 const router = createBrowserRouter([
   {
@@ -35,8 +40,31 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <CheckOutPage />
+      },
+      {
+        path: "verify",
+        element: <PaymentVarify />,
       }
     ],
+  },
+  {
+    path: '/user',
+    element: <UserDashBoardLayout />,
+    children: [
+      {
+        index: true,
+        element: <UserDashBoard />
+      },
+      {
+        path: "profile",
+        element: <UserProfile />
+      },
+      {
+        path: "orders",
+        element: <UserOrders />
+      },
+    ]
+
   },
   {
     path: "/signin",
@@ -49,7 +77,8 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminAddProduct />,
-  }
+  },
+  
 ]);
 
 function App() {
