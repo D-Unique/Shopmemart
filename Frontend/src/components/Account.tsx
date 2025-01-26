@@ -5,8 +5,6 @@ import { Cart } from "react-bootstrap-icons";
 import "../styles/components/Account.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { validateToken } from "../util/checkToken"; // Import the utility
-import { User } from "../Enums"; // Import the interface
 import BackendLogout from "../util/BackendLogout";
 
 const Account: React.FC = () => {
@@ -14,41 +12,28 @@ const Account: React.FC = () => {
   const { getTotalProducts } = useContext(ProductContext);
   const totalProducts = getTotalProducts();
 
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  // Fetch the token from local storage
-  const token = localStorage.getItem("token");
-
+  const [user, setUser] = useState<boolean>(false);
   useEffect(() => {
-    console.log("Retrieved token from localStorage:", token);
 
-    const fetchUser = async () => {
-      const result = await validateToken(token);
-      if (result) {
-        setUser(result.user);
+    const fetchUser =  () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        setUser(true);
       } else {
         localStorage.removeItem("token");
-        setUser(null);
+        setUser(false);
       }
-      setLoading(false);
+    
     };
 
     fetchUser();
-  }, [token]);
+  }, []);
 
   // Handle logout
   const handleLogout =  async() => {
     await BackendLogout();
-    setUser(null);
+    setUser(false);
   };
-
-  if (loading) {
-    console.log("Still loading...");
-    return <div>Loading...</div>;
-  }
-
-  console.log("Rendering Account component. User:", user);
 
   return (
     <div id="account" className="d-flex m-2 justify-content-between align-items-center">
