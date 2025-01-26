@@ -4,11 +4,14 @@ Welcome to **ShopMeMart**, an e-commerce platform that provides a seamless shopp
 
 ---
 
+![Screenshot 2025-01-26 194110](https://github.com/user-attachments/assets/2d10ca25-fbc1-47de-8d4b-96694424fff1)
+
 ## Authors
 **Yusuf Mustapha Opeyemi** [mustopha.yusufope@gmail.com]
-**Unigwe Emmanuel Chimnecherem** []
+**Unigwe Emmanuel Chimnecherem** [emmunigwe@gmail.com]
 
 ---
+
 
 ## Features
 
@@ -38,33 +41,43 @@ Welcome to **ShopMeMart**, an e-commerce platform that provides a seamless shopp
    git clone https://github.com/your-username/ShopMeMart.git
    ```
 
-2. Navigate to the project directory:
+2. Navigate to the project directory backend:
    ```bash
-   cd ShopMeMart
+   cd ShopMeMart/backend
    ```
 
-3. Install dependencies:
+3. Install backend dependencies:
    ```bash
    npm install
    ```
-
+   
 4. Create a `.env` file in the root directory and add the following environment variables:
    ```env
    DB_URL=your_database_url
    PORT=your_port
    ```
 
-5. Start the server:
+5. Navigate to the project directory frontend:
    ```bash
-   npm start
+   cd ShopMeMart/frontend
    ```
 
-6. Access the application at `http://localhost:3000` (or your specified port).
+6. Install backend dependencies:
+   ```bash
+   npm install
+   ```
+
+5. Start the server:
+   ```bash
+   npm run server 
+   ```
+
+6. Access the application at `http://localhost:5000` (or your specified port).
 
 ---
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, React.js
+- **Frontend**: HTML, CSS, Boostraps, React.js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT)
