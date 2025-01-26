@@ -64,11 +64,11 @@ Welcome to **ShopMeMart**, an e-commerce platform that provides a seamless shopp
 ---
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS, React.js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT)
-- **Payment Integration**: Secure payment gateway
+- **Payment Integration**: Secure payment gateway - Paystack
 
 ---
 

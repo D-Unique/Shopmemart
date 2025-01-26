@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import ProductContext from "../context/ProductContext"
+import UserContext from "../context/UserContext"
 import '../styles/pages/CheckOutPage.css'
 import { DbProducts, Product } from "../Enums"
 
@@ -8,6 +9,8 @@ import { DbProducts, Product } from "../Enums"
 
 function CheckOutPage() {
   // get cart products from context
+  const { getUser, UserEmail } = useContext(UserContext);
+  const user = getUser();
   const { products } = useContext(ProductContext);
 
   // save db products in the state sbproducts
@@ -68,7 +71,7 @@ function CheckOutPage() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "email": "emmunigw@gmail.com", 
+        "email": UserEmail, 
         "amount": total
       }), 
     })

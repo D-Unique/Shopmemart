@@ -7,10 +7,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CartContextProvider from './context/CartContextProvider.tsx';
 import ProductContextProvider from './context/ProductContextProvider.tsx';
+import UserContextProvider from './context/UserContextProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-  
+  <UserContextProvider>
     <ShopProvider>
       <ProductContextProvider>
         <CartContextProvider>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
         </CartContextProvider>
       </ProductContextProvider>
       </ShopProvider>
+    </UserContextProvider>
     
   </StrictMode>
 );

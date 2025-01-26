@@ -50,7 +50,7 @@ function Topcartegories(): JSX.Element {
     setCartegorie(category);
   };
   return (
-    <section>
+    <section id="topcartegories">
       <div className='category-head'>
         <div className='category-title'>
           Shop Our Top Categories

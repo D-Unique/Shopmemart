@@ -53,6 +53,12 @@ export type DbProducts= {
   
 };
 
+
+export type UserProviderProps = {
+  children: ReactNode;
+};
+
+
 export interface User {
   id: string;
   name: string;

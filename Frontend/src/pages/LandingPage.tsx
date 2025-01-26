@@ -9,7 +9,7 @@ function LandPage() {
     <>
     <div id='landingpage'>
       <Banner />
-      <Bestdeal /> 
+        <Bestdeal /> 
       <Topcartegories />
       <BestSellers />
       </div>

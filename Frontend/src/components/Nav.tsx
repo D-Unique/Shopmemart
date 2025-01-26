@@ -12,8 +12,18 @@ export default function Nav() {
          <Link to={'/'} className="logo"> <h1 id="logo">ShopMeMart</h1></Link>
         </Col>
         <Col xs="6" className="d-flex justify-content-center align-items-center no-padding">
-          {pMenus.map((menu, index) => {
-            return (
+          { pMenus.map((menu, index) => {
+            return menu === "Categories" ? (
+              <a href="#topcartegories" id="pmenus" className="text-light m-2" key={index}>
+                {menu}
+              </a>
+            ) : (menu === "Best Deals" ? (
+              <a href="#best-deal-div" id="pmenus" className="text-light m-2" key={index}>
+              {menu}
+            </a>
+            ) :
+              
+                (
               <NavLink
                 id="pmenus"
                 className="text-light m-2"
@@ -22,7 +32,8 @@ export default function Nav() {
               >
                 {menu}
               </NavLink>
-            );
+              ))
+            
           })}
         </Col>
       </Row>

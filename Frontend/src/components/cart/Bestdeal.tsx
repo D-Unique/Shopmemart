@@ -33,7 +33,7 @@ const Bestdeal = () => {
  
   return (
     <>
-      <div className='best-deal-div'>
+      <div id="best-deal-div" className='best-deal-div'>
         <h3 className='category-title'>Todays Best Deals for you!</h3>
         <div className='bestdeal'>
           { randomProducts ? <MacroCart data={randomProducts} />: <MacroCart data={localStorageRandomProduct} />}
