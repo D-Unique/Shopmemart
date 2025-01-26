@@ -16,11 +16,11 @@ const Account: React.FC = () => {
   useEffect(() => {
 
     const fetchUser =  () => {
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem("token");
       if (token) {
         setUser(true);
       } else {
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         setUser(false);
       }
     

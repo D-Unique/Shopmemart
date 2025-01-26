@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UserContext from './UserContext';
 import { validateToken } from '../util/checkToken';
 import { User, UserProviderProps } from '../Enums';
@@ -9,7 +9,7 @@ function UserContextProvider({ children } : UserProviderProps) {
     const [dbuser, setUser] = useState<User>({} as User);
 
     const getUser = async () => {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         if (!token) {
             window.location.href = "/signin";
         }

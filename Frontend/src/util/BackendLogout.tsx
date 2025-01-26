@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 async function  BackendLogout() {
     const url = "http://localhost:3000/api/v1/user/logout";
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -14,7 +14,7 @@ async function  BackendLogout() {
             },
         });
         if (response.ok) {
-            localStorage.removeItem("token");
+            sessionStorage.removeItem("token");
             const data = await response.json();
             toast.success(data.message, { position: 'bottom-center' });
             

@@ -1,6 +1,7 @@
 import ProductContext from './ProductContext.ts';
 import { useState} from 'react';
-import { ProductProviderProps , Product} from '../Enums.ts';
+import { ProductProviderProps, Product } from '../Enums.ts';
+import { toast } from 'react-toastify';
 
 
 function ProductContextProvider({ children }: ProductProviderProps ) {
@@ -25,6 +26,7 @@ function ProductContextProvider({ children }: ProductProviderProps ) {
   }
 
   function addOneProduct(id: number) {
+    toast.success('Product added to cart', { position: 'bottom-center' });
     const productquantity = getProductQuantity(id);
     if (productquantity === 0) {
       setproduct([...products, { id: id, quantity: 1 }]);

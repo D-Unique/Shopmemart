@@ -62,7 +62,7 @@ export default function SignIn() {
       const { token } = result;
 
       // Store the token in localStorage
-      localStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
 
       // If "Remember me" is checked, store email/password
       if (remember) {
